@@ -61,13 +61,11 @@ That matters for what such a model can claim. Given a video, it can predict the 
 
 ## My thoughts
 
-%% YOUR SECTION. Nothing here shows on the site until you write text under this heading.
-Write a few short paragraphs in your own voice, not a summary of the papers:
-- Which finding surprised you most, and why?
-- Is there anything you disagree with, or think is overstated?
-- If you had your own lab for a year, what would you test first?
-- How does this connect to something you have actually done or seen?
-Specific beats general: a moment, a result, a conversation. %%
+The part that changed how I think about the brain is that mood can be regulated by light along a route that does not need the clock at all. I had assumed the clock was the whole story, and that anything light did to mood had to run through it. Seasonal depression is the obvious case where this matters in people: less light in winter, and people are lower and more tired. If the PHb route is doing that work, it is a target rather than a side effect.
+
+That leads to a question I would like to see tested. If light reaches mood through a specific pathway, can that pathway be driven directly, by changing someone's light or by stimulating the circuit, and does mood follow? Work on stimulating the vestibular sense makes me think the general approach is not far-fetched.
+
+The claim I am least settled on is on the learning side. The paper shows that aberrant light impairs learning, but not what it does to consolidation specifically. Does light help memories consolidate, or interfere with it, and at what point in the day? That seems like the obvious next experiment and I have not seen it done.
 
 ## What is not known
 

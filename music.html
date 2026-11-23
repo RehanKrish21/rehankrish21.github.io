@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Music in My Life</title>
+<meta name="description" content="An addendum by Rehan Krishnan: music, the piano, and how it led him to think about plasticity.">
+<link rel="preload" href="assets/fonts/cmu-serif-500-roman.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"CMU Serif";font-style:normal;font-weight:500;src:url("assets/fonts/cmu-serif-500-roman.woff2") format("woff2")}
+@font-face{font-family:"CMU Serif";font-style:italic;font-weight:500;src:url("assets/fonts/cmu-serif-500-italic.woff2") format("woff2")}
+@font-face{font-family:"CMU Serif";font-style:normal;font-weight:700;src:url("assets/fonts/cmu-serif-700-roman.woff2") format("woff2")}
+@font-face{font-family:"CMU Serif";font-style:italic;font-weight:700;src:url("assets/fonts/cmu-serif-700-italic.woff2") format("woff2")}
+:root{--paper:#FCFCF9;--ink:#141517;--grey:#6B6E73;--faint:#D9DAD6;--accent:#9E2A2B}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#15161A;--ink:#E9E7E1;--grey:#9A9CA1;--faint:#33353B;--accent:#E07A6B}}
+:root[data-theme="dark"]{--paper:#15161A;--ink:#E9E7E1;--grey:#9A9CA1;--faint:#33353B;--accent:#E07A6B}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:500 19px/1.6 "CMU Serif","Latin Modern Roman","Computer Modern",Georgia,serif;font-kerning:normal}
+#notes{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main{position:relative;z-index:1;max-width:700px;margin:0 auto;padding:28px 24px 56px}
+a{color:inherit;text-decoration:none;border-bottom:1px solid var(--faint)}
+a:hover{border-bottom-color:var(--ink)}
+.back{font-size:15px;font-style:italic;color:var(--grey);border:0}
+.back:hover{color:var(--ink)}
+.kicker{text-align:center;font-variant:small-caps;letter-spacing:2px;font-size:15px;color:var(--accent);margin:44px 0 4px}
+h1{font-size:38px;line-height:1.1;margin:0 0 6px;font-weight:700;text-align:center}
+.sub{text-align:center;font-style:italic;font-size:18px;color:var(--grey);margin:0 0 10px}
+.rule{display:block;margin:20px auto 32px;width:160px;height:24px;overflow:visible}
+p{margin:0 0 15px;text-align:justify;hyphens:auto}
+h2{font-size:21px;margin:38px 0 10px;font-weight:700}
+.salut{font-style:italic;margin-bottom:18px}
+.sign{margin-top:26px;font-style:italic}
+.sign b{font-style:normal}
+blockquote{margin:18px 0;padding:0 0 0 18px;border-left:2px solid var(--faint);color:var(--grey);font-style:italic}
+.pieces{list-style:none;padding:0;margin:14px 0 0}
+.pieces li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;margin:0 0 12px;padding-bottom:12px;border-bottom:1px solid var(--faint)}
+.pieces li:last-child{border-bottom:0}
+.pieces .n{color:var(--accent);font-size:19px;line-height:1}
+.pieces .w{font-weight:700}
+.pieces .c{display:block;color:var(--grey);font-size:16px;font-style:italic;margin-top:1px}
+.note{font-size:15px;color:var(--grey);border-top:1px solid var(--faint);margin-top:40px;padding-top:12px}
+@media (max-width:640px){body{font-size:17px}main{padding:18px 16px 40px}h1{font-size:28px}p{text-align:left}}
+</style>
+</head>
+<body>
+<canvas id="notes" aria-hidden="true"></canvas>
+<main>
+<a class="back" href="./">← Rehan Krishnan</a>
+
+<p class="kicker">Addendum: Letter to the Editor</p>
+<h1>Music in My Life</h1>
+<p class="sub">Rehan Krishnan · Johns Hopkins University</p>
+
+<svg class="rule" viewBox="0 0 150 22" aria-hidden="true">
+  <g stroke="currentColor" stroke-opacity=".3" stroke-width=".6">
+    <line x1="0" y1="4" x2="150" y2="4"/><line x1="0" y1="8" x2="150" y2="8"/><line x1="0" y1="12" x2="150" y2="12"/><line x1="0" y1="16" x2="150" y2="16"/><line x1="0" y1="20" x2="150" y2="20"/>
+  </g>
+  <g fill="currentColor" fill-opacity=".75">
+    <ellipse cx="58" cy="16" rx="3.4" ry="2.5" transform="rotate(-20 58 16)"/><rect x="60.9" y="5" width="1" height="11"/>
+    <ellipse cx="86" cy="12" rx="3.4" ry="2.5" transform="rotate(-20 86 12)"/><rect x="88.9" y="5" width="1" height="7"/>
+    <rect x="60.9" y="5" width="29" height="1.7"/>
+  </g>
+</svg>
+
+<!-- ========== EDIT HERE: THE LETTER ========== -->
+<p class="salut">To the editor,</p>
+
+<p>Everything else on this site is written the way a paper is written. This one is not, because the subject does not take to it. I have been playing piano for as long as I have been interested in anything, and it was music, not a class, that led me to the science I now work on.</p>
+
+<p>The route was roundabout. I was reading about music and the brain, which led me to work on critical periods, and to the question that still holds me: whether a window that closes in development can be opened again. Musicians are one of the places people look for an answer, because training changes the structure and function of the brain in ways that are measurable and that depend on when the training started. I had been sitting inside that experiment since I was small, without knowing it was one.</p>
+
+<p>There is a version of this I am careful about. It is easy to say that music rewires the brain and leave it there, and the claim is more interesting when it is kept honest: what changes, by how much, measured how, and in whom. I wrote about that carefulness in my essays. Here I only want to say that the interest came first and the rigour came after.</p>
+
+<p>What playing has actually given me is harder to put in a figure. An hour of practice is an hour of being wrong in a specific, correctable way, which turns out to be the same skill as learning to patch a cell. And playing for people who are not listening for mistakes, in the assisted-living homes around Memphis, taught me something about what music is for that no paper has.</p>
+
+<p class="sign">Respectfully,<br><b>Rehan Krishnan</b></p>
+
+<!-- ========== EDIT HERE: WHAT I'M LISTENING TO (add or remove <li> blocks) ========== -->
+<h2>On repeat</h2>
+<p>A running list, in no order, and not a tasteful one.</p>
+<ul class="pieces">
+  <li><span class="n">&#9833;</span><span><span class="w">Add a piece here</span><span class="c">composer or artist — and a line on why, if you want</span></span></li>
+  <li><span class="n">&#9834;</span><span><span class="w">And another</span><span class="c">copy one of these rows to add more</span></span></li>
+  <li><span class="n">&#9835;</span><span><span class="w">And another</span><span class="c">delete the ones you do not use</span></span></li>
+</ul>
+
+<p class="note">Also on this site: <a href="essays/">the essays</a> and <a href="./">the rest</a>. If you want to tell me I am wrong about any of it, or send me something to listen to: <a href="mailto:rkrish23@jh.edu">rkrish23@jh.edu</a>.</p>
+</main>
+
+<script>
+(() => {
+  const c = document.getElementById('notes'), x = c.getContext('2d');
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  // Glyphs drawn as paths rather than text, so they keep their shape at any size.
+  function glyph(k, s){
+    const p = new Path2D();
+    p.ellipse(0, 0, s * .62, s * .46, -0.35, 0, 7);                 // note head
+    const stem = new Path2D(); stem.rect(s * .5, -s * 2.6, s * .13, s * 2.6);
+    const out = new Path2D(); out.addPath(p); out.addPath(stem);
+    if (k > 0){                                                      // one or two flags
+      const f = new Path2D();
+      f.moveTo(s * .6, -s * 2.6); f.quadraticCurveTo(s * 1.5, -s * 2.0, s * .75, -s * 1.2);
+      f.quadraticCurveTo(s * 1.1, -s * 1.9, s * .6, -s * 2.1); out.addPath(f);
+    }
+    if (k > 1){
+      const f2 = new Path2D();
+      f2.moveTo(s * .6, -s * 1.9); f2.quadraticCurveTo(s * 1.5, -s * 1.3, s * .75, -s * .5);
+      f2.quadraticCurveTo(s * 1.1, -s * 1.2, s * .6, -s * 1.4); out.addPath(f2);
+    }
+    return out;
+  }
+  let W, H, notes = [], raf = 0;
+  function reset(){
+    W = c.width = innerWidth * devicePixelRatio; H = c.height = innerHeight * devicePixelRatio;
+    c.style.width = innerWidth + 'px'; c.style.height = innerHeight + 'px';
+    const n = Math.round(Math.min(26, Math.max(10, innerWidth / 70)));
+    notes = Array.from({length: n}, (_, i) => ({
+      x: Math.random() * W, y: Math.random() * H,
+      s: (7 + Math.random() * 11) * devicePixelRatio,
+      k: Math.floor(Math.random() * 3),
+      v: (0.14 + Math.random() * 0.3) * devicePixelRatio,   // drift speed, upward
+      a: Math.random() * Math.PI * 2,                        // phase of the sway
+      w: 0.4 + Math.random() * 0.8,                          // how wide it sways
+      sp: 0.0006 + Math.random() * 0.0011,                   // how fast it sways
+      o: 0.05 + Math.random() * 0.12,                        // opacity
+      hot: i % 7 === 0,                                      // a few in the accent colour
+      trail: []
+    }));
+  }
+  function frame(t){
+    x.clearRect(0, 0, W, H);
+    const ink = css('--ink'), acc = css('--accent');
+    for (const p of notes){
+      p.y -= p.v; p.a += p.sp;
+      const px = p.x + Math.sin(p.a) * 42 * p.w * devicePixelRatio;
+      if (p.y < -p.s * 4){ p.y = H + p.s * 4; p.x = Math.random() * W; p.trail.length = 0; }
+      p.trail.push([px, p.y]); if (p.trail.length > 26) p.trail.shift();
+      // the trail: the path the note has swum along
+      x.beginPath();
+      p.trail.forEach(([tx, ty], i) => i ? x.lineTo(tx, ty) : x.moveTo(tx, ty));
+      x.strokeStyle = p.hot ? acc : ink; x.globalAlpha = p.o * .45;
+      x.lineWidth = 1 * devicePixelRatio; x.lineCap = 'round'; x.stroke();
+      // the note itself
+      x.save(); x.translate(px, p.y); x.rotate(Math.sin(p.a) * .12);
+      x.fillStyle = p.hot ? acc : ink; x.globalAlpha = p.o;
+      x.fill(glyph(p.k, p.s)); x.restore();
+    }
+    x.globalAlpha = 1;
+    raf = requestAnimationFrame(frame);
+  }
+  function start(){ reset(); cancelAnimationFrame(raf); if (still){ frame(0); cancelAnimationFrame(raf); } else raf = requestAnimationFrame(frame); }
+  start();
+  let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(start, 180); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden) cancelAnimationFrame(raf); else if (!still) raf = requestAnimationFrame(frame); });
+})();
+</script>
+</body>
+</html>
