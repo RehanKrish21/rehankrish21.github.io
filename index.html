@@ -33,6 +33,9 @@ h1 small{font-size:17px;font-weight:500;color:var(--grey);margin-left:12px;lette
 .spike{cursor:pointer}
 .spike:focus{outline:none}
 .spike:focus-visible .lbl{text-decoration:underline}
+.spike.fire circle{fill:var(--accent);stroke:var(--accent)}
+.spike.fire .lbl{fill:var(--accent)}
+.spike circle,.spike .lbl{transition:fill .25s,stroke .25s}
 .paper{max-width:760px;margin:0 auto;padding:12px 24px 40px}
 .abstract{font-size:18px;margin:28px 0 8px}
 .abstract b{font-variant:small-caps;letter-spacing:.5px}
@@ -302,6 +305,53 @@ function voltage(T, spikes, epsps){
   return V;
 }
 
+// A dot that rides the voltage trace. Its speed is set by horizontal distance plus a little
+// of the vertical, so it crosses the flat stretches at an even pace and climbs each spike quickly.
+// When it reaches a spike's peak, that spike fires: it flashes, ripples, and plays its note if sound is on.
+let tracer = null;
+function startTracer(svg, pts, V, groups, el, accent){
+  if (tracer) { cancelAnimationFrame(tracer.raf); clearTimeout(tracer.wait); }
+  tracer = null;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const cum = [0];
+  for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + Math.abs(pts[i][0] - pts[i - 1][0]) + .3 * Math.abs(pts[i][1] - pts[i - 1][1]));
+  const total = cum[cum.length - 1], dur = 11000;
+  const peakIdx = []; for (let i = 0; i < V.length; i++) if (V[i][1] === 30) peakIdx.push(i);
+  const halo = el('circle', {r: 10, fill: accent, opacity: .16, 'pointer-events': 'none'});
+  const dot = el('circle', {r: 4.2, fill: accent, 'pointer-events': 'none'});
+  halo.style.visibility = dot.style.visibility = 'hidden';
+  const state = {raf: 0, wait: 0, start: null, last: null, next: 0, prev: 0};
+  tracer = state;
+  const sheetEl = document.getElementById('sheet');
+  function fire(k){
+    const g = groups[k]; if (!g) return;
+    g.classList.add('fire'); setTimeout(() => g.classList.remove('fire'), 650);
+    const c = g.querySelector('circle');
+    const ring = el('circle', {cx: c.getAttribute('cx'), cy: c.getAttribute('cy'), r: 5, fill: 'none', stroke: accent, 'stroke-width': 1.5, 'pointer-events': 'none'});
+    ring.style.transformBox = 'fill-box'; ring.style.transformOrigin = 'center';
+    ring.animate([{transform: 'scale(1)', opacity: .9}, {transform: 'scale(5)', opacity: 0}], {duration: 900, easing: 'ease-out'}).onfinish = () => ring.remove();
+    play(NOTES[k]);
+  }
+  function frame(ts){
+    if (tracer !== state) return;
+    if (state.start === null) { state.start = ts; state.last = ts; }
+    if (sheetEl.classList.contains('open') || document.hidden) state.start += ts - state.last;   // hold still while a section is open
+    state.last = ts;
+    const c = ((ts - state.start) % dur) / dur * total;
+    if (c < state.prev) state.next = 0;                       // wrapped round to the start
+    state.prev = c;
+    let lo = 0, hi = cum.length - 1;
+    while (lo < hi) { const m = (lo + hi) >> 1; if (cum[m] < c) lo = m + 1; else hi = m; }
+    const i = Math.max(1, lo), f = (c - cum[i - 1]) / ((cum[i] - cum[i - 1]) || 1);
+    const px = pts[i - 1][0] + f * (pts[i][0] - pts[i - 1][0]), py = pts[i - 1][1] + f * (pts[i][1] - pts[i - 1][1]);
+    dot.setAttribute('cx', px); dot.setAttribute('cy', py); halo.setAttribute('cx', px); halo.setAttribute('cy', py);
+    while (state.next < peakIdx.length && i > peakIdx[state.next]) { fire(state.next); state.next++; }
+    state.raf = requestAnimationFrame(frame);
+  }
+  // start once the trace has finished drawing itself in
+  state.wait = setTimeout(() => { halo.style.visibility = dot.style.visibility = ''; state.raf = requestAnimationFrame(frame); }, 2300);
+}
+
 function drawTrace(){
   const host = document.getElementById('trace');
   const W = host.clientWidth - parseFloat(getComputedStyle(host).paddingLeft) * 2;
@@ -335,9 +385,10 @@ function drawTrace(){
   else path.style.strokeDashoffset = 0;
   // each spike peak is a link
   const peaks = []; for (let i = 1; i < V.length - 1; i++) if (V[i][1] === 30) peaks.push(V[i][0]);
+  const groups = [];
   peaks.slice(0, SECTIONS.length).forEach((t, i) => {
     const [id, name] = SECTIONS[i]; 
-    const g = el('g', {class: 'spike', tabindex: 0, role: 'link', 'aria-label': `${i + 1}. ${name}`});
+    const g = el('g', {class: 'spike', tabindex: 0, role: 'link', 'aria-label': `${i + 1}. ${name}`}); groups.push(g);
     const px = x(t), py = y(30);
     el('rect', {x: px - 16, y: py - 90, width: 34, height: H - padB - py + 90, fill: 'transparent'}, g);
     const dot = el('circle', {cx: px, cy: py, r: 4.5, fill: css('--paper'), stroke: ink, 'stroke-width': 1.2}, g);
@@ -350,6 +401,7 @@ function drawTrace(){
     g.addEventListener('click', go); g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
   });
   host.replaceChildren(svg);
+  startTracer(svg, V.map(([t, v]) => [x(t), y(v)]), V, groups, el, accent);
 }
 
 // Ink figures, drawn with the same branching rule used for the banner.
