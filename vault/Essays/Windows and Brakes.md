@@ -55,10 +55,6 @@ Musical training is another human case: it changes the brain's structure and fun
 
 I came to critical periods sideways, through music. I was reading about Larry Benowitz's work at Harvard and then about Takao Hensch's work on the critical period, and the question that caught me was whether the window could be reopened, or stretched, to help recovery after damage. Cross-modal plasticity is the version of this that I still find hardest to put down: take away one sense and the others don't just compensate, they sharpen. If that rewiring is available after an injury, the question is whether a window can be opened on purpose to get at it. Following that question is also what got me interested in the developing brain, and eventually into the work I did at the University of Minnesota.
 
-![The seal test: with a seal the test pulse gives almost no current; with the tip in the bath it gives a large square current.](gigaseal.svg)
-
-*Fig. 1. The seal test. The same small voltage pulse is applied in both cases. Drawn for this essay.*
-
 Right now I am training in patch clamping and in the dissection that comes before it. The patching is the hard part. Forming the gigaseal is where it goes wrong: if you miss the cell, you are not recording the cell at all, you are recording the solution around it, and the trace tells you so. The dissection matters more than I expected, because a bad slice makes good patching impossible. Cells come out uneven or cut through, and the healthy ones are simply not there to find. The unhealthy ones have a look to them that is easy to recognise once someone shows you: we call them fried eggs.
 
 The experiment I would want to run is at the network level rather than the single-cell level. Lesion or stimulate one part of a circuit and ask how the rest reorganises around it, recording from several cells at once across a visual input, watching which cells get recruited. What I would really want to know is whether a damaged optic pathway can be brought back that way.
@@ -71,7 +67,7 @@ The brakes are also there for a reason. A brain held open indefinitely is unlike
 
 And most of this was shown in rodents. The human evidence, from stroke rehabilitation, antidepressant trials and imaging of musicians, is real but indirect.
 
-My own lab project looks at one of those circuits: how PV interneurons set the balance of excitation and inhibition in cortex as the critical period opens and closes.
+I will share the details of my own lab project once it is further along. Stay tuned for more on ocular dominance.
 
 [^1]: D. H. Hubel, T. N. Wiesel. *The period of susceptibility to the physiological effects of unilateral eye closure in kittens.* J. Physiol. 206, 419–436 (1970). [doi:10.1113/jphysiol.1970.sp009022](https://doi.org/10.1113/jphysiol.1970.sp009022)
 [^2]: Z. J. Huang et al. *BDNF regulates the maturation of inhibition and the critical period of plasticity in mouse visual cortex.* Cell 98, 739–755 (1999). [doi:10.1016/S0092-8674(00)81509-3](https://doi.org/10.1016/S0092-8674(00)81509-3)
