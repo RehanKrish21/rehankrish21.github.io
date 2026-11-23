@@ -50,8 +50,15 @@ figcaption{font-style:italic;color:var(--grey);font-size:15px;margin-top:4px}
 .refs .t{font-style:italic}
 .proj dt{font-weight:700;margin-top:12px}
 .proj dd{margin:2px 0 0 22px}
-.corr{margin:56px 0 0;padding-top:14px;border-top:1px solid var(--faint);font-size:16px;color:var(--grey)}
-.corr a{color:var(--ink)}
+.apx{font-size:17px;margin:22px 0 0;text-align:left}
+.reach{margin:40px 0 0;padding:16px 18px;border:1px solid var(--faint);border-left:3px solid var(--accent)}
+.reach p{margin:0 0 8px;text-align:left}
+.reach .sm{font-size:15px;color:var(--grey);margin:0}
+.cv{list-style:none;padding:0;margin:0 0 6px}
+.cv li{display:grid;grid-template-columns:1fr auto;column-gap:16px;margin:0 0 10px;font-size:17px;line-height:1.45}
+.cv .d{color:var(--grey);font-size:15px;white-space:nowrap}
+.cv .w{color:var(--grey);font-size:15.5px;grid-column:1/-1}
+@media (max-width:640px){.cv li{grid-template-columns:1fr}.cv .d{white-space:normal}}
 footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:var(--grey)}
 ::selection{background:var(--faint)}
 .links{margin:6px 0 0;font-size:16px;color:var(--grey)}
@@ -62,16 +69,19 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
 .sheet.open{transform:none;visibility:visible}
 .scrim{position:fixed;inset:0;background:rgba(0,0,0,.18);opacity:0;pointer-events:none;transition:opacity .3s;z-index:9}
 .scrim.open{opacity:1;pointer-events:auto}
-.tabbar{display:flex;align-items:flex-end;gap:4px;max-width:760px;width:100%;margin:0 auto;padding:14px 24px 0;border-bottom:1px solid var(--faint);flex:none}
+.tabbar{display:flex;align-items:flex-end;gap:2px;overflow-x:auto;scrollbar-width:none;max-width:900px;width:100%;margin:0 auto;padding:14px 24px 0;border-bottom:1px solid var(--faint);flex:none}
 .tabbar button{font:inherit;font-size:17px;background:none;border:0;border-bottom:2px solid transparent;color:var(--grey);padding:6px 10px 8px;cursor:pointer;margin-bottom:-1px}
 .tabbar button b{margin-right:6px}
 .tabbar button:hover{color:var(--ink)}
 .tabbar button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
-.tabbar .close{margin-left:auto;font-size:26px;line-height:1;padding:2px 6px 8px;color:var(--grey)}
+.tabbar .apx-tab{font-style:italic}
+.tabbar .close{position:absolute;top:8px;right:14px;font-size:28px;line-height:1;padding:4px 8px;color:var(--grey);border:0;margin:0}
+.tabbar .close:hover{color:var(--ink)}
 .grip{width:44px;height:4px;border-radius:2px;background:var(--faint);margin:10px auto 0;flex:none}
 .sheet-body{overflow-y:auto;flex:1;-webkit-overflow-scrolling:touch}
 .sheet-body .paper{padding-top:4px}
 .sheet-body h2{margin-top:22px}
+.sheet-body h3{font-size:18px;margin:20px 0 6px;font-weight:700}
 @media (prefers-reduced-motion:reduce){.sheet,.scrim{transition:none}}
 @media (max-width:640px){
  body{font-size:17px}
@@ -87,7 +97,8 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
  .fig-right{float:none;width:100%;max-width:240px;margin:12px auto}
  p{text-align:left}
  .sheet{height:92vh;height:92dvh}
- .tabbar{padding:10px 8px 0;gap:0;overflow-x:auto}
+ .tabbar{padding:10px 8px 0;gap:0;overflow-x:auto;margin-top:22px}
+ .tabbar .close{top:4px;right:8px}
  .tabbar button{font-size:15px;padding:6px 7px 8px;white-space:nowrap}
  .tabbar button b{margin-right:3px}
  .links{font-size:14px}
@@ -100,8 +111,8 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
   <div>
     <h1>Rehan Krishnan <small>Neuroscience &amp; Applied Mathematics, Johns Hopkins</small></h1>
     <p class="problem"><b>Problem.</b> A neuron at rest obeys <span class="math">τ dV/dt = −(V − E<sub>L</sub>) + R I(t)</span>.
-      <i class="hint">Four inputs reach threshold below: each spike opens a section. Click one.</i></p>
-    <p class="links"><a href="mailto:rkrish23@jh.edu">Email</a><span class="sep">·</span><a href="https://www.linkedin.com/in/rehan-krishnan-b1b041329">LinkedIn</a><span class="sep">·</span><a href="https://github.com/RehanKrish21">GitHub</a></p>
+      <i class="hint">Five inputs reach threshold below: each spike opens a section. Click one.</i></p>
+    <p class="links"><a href="essay.html">Essay</a><span class="sep">·</span><a href="mailto:rkrish23@jh.edu">Email</a><span class="sep">·</span><a href="https://www.linkedin.com/in/rehan-krishnan-b1b041329">LinkedIn</a><span class="sep">·</span><a href="https://github.com/RehanKrish21">GitHub</a></p>
   </div>
   <button class="toggle" id="sound" type="button" aria-pressed="false">sound off</button>
 </header>
@@ -109,9 +120,13 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
 <div id="trace" aria-label="Membrane voltage trace. Each spike links to a section."></div>
 
 <main class="paper">
-  <p class="abstract"><b>Abstract.</b> I am a first-year student at Johns Hopkins University, majoring in Neuroscience with a minor in Applied Mathematics. I work at the bench, write software, and play piano. This page is laid out like a short paper; the spikes above are its table of contents, and each one pulls up its section.</p>
+  <p class="abstract"><b>Abstract.</b> I am a first-year student at Johns Hopkins University, majoring in Neuroscience with a minor in Applied Mathematics. I work at the bench, write software, and play piano. This page is laid out like a short paper: introduction, methods, results, discussion and citations. The spikes above are its table of contents, and each one pulls up its section.</p>
 
-  <p class="corr">Correspondence: <a href="mailto:rkrish23@jh.edu">rkrish23@jh.edu</a> · <a href="https://github.com/RehanKrish21">GitHub</a> · <a href="https://www.linkedin.com/in/rehan-krishnan-b1b041329">LinkedIn</a></p>
+  <p class="apx"><b>Appendices.</b> <a href="#positions">A. Positions</a> · <a href="#awards">B. Awards</a> &nbsp;&nbsp; <b>Essay.</b> <a href="essay.html"><i>Windows and Brakes</i>: where the science of neuroplasticity stands</a></p>
+  <div class="reach" id="contact">
+    <p><b>Correspondence.</b> If you are interested in working together, have a question about my research, or want to talk about neuroscience, music or NeuGenesis, I would be glad to hear from you: <a href="mailto:rkrish23@jh.edu">rkrish23@jh.edu</a>.</p>
+    <p class="sm">For NeuGenesis specifically: <a href="mailto:ceo.neugenesis@gmail.com">ceo.neugenesis@gmail.com</a> · <a href="https://www.linkedin.com/in/rehan-krishnan-b1b041329">LinkedIn</a> · <a href="https://github.com/RehanKrish21">GitHub</a></p>
+  </div>
 </main>
 <footer>Updated November 2026</footer>
 
@@ -119,44 +134,117 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Section">
   <div class="grip"></div>
   <div class="tabbar" role="tablist">
-    <button role="tab" id="tab-research" data-tab="research"><b>1</b>Research</button>
-    <button role="tab" id="tab-publications" data-tab="publications"><b>2</b>Publications</button>
-    <button role="tab" id="tab-projects" data-tab="projects"><b>3</b>Projects</button>
-    <button role="tab" id="tab-music" data-tab="music"><b>4</b>Music</button>
+    <button role="tab" id="tab-introduction" data-tab="introduction"><b>1</b>Introduction</button>
+    <button role="tab" id="tab-methods" data-tab="methods"><b>2</b>Methods</button>
+    <button role="tab" id="tab-results" data-tab="results"><b>3</b>Results</button>
+    <button role="tab" id="tab-discussion" data-tab="discussion"><b>4</b>Discussion</button>
+    <button role="tab" id="tab-citations" data-tab="citations"><b>5</b>Citations</button>
+    <button role="tab" id="tab-positions" data-tab="positions" class="apx-tab"><b>A</b>Positions</button>
+    <button role="tab" id="tab-awards" data-tab="awards" class="apx-tab"><b>B</b>Awards</button>
     <button class="close" id="close" aria-label="Close">×</button>
   </div>
   <div class="sheet-body" id="sheetBody"><div class="paper">
-<section class="tab" id="research" role="tabpanel" aria-labelledby="tab-research" hidden>
-  <h2><span class="n">1</span>Research</h2>
+<section class="tab" id="introduction" role="tabpanel" aria-labelledby="tab-introduction" hidden>
+  <h2><span class="n">1</span>Introduction</h2>
+  <p>I am a first-year student at Johns Hopkins University, majoring in Neuroscience with a minor in Applied Mathematics.</p>
+  <p>Most of my work so far has one of two shapes. Some of it is measurement: recording from neurons, or turning images of tissue into numbers that can be compared. The rest is building: software that checks where a scientific model's numbers come from, an app that teaches through music, and piano for audiences who rarely get live music. The sections that follow describe the methods, what came of them, and what I am working on now.</p>
+</section>
+<section class="tab" id="methods" role="tabpanel" aria-labelledby="tab-methods" hidden>
+  <h2><span class="n">2</span>Methods</h2>
   <figure class="fig-right"><canvas id="fig1" width="500" height="560" aria-label="Ink drawing of a pyramidal neuron"></canvas>
     <figcaption>Fig. 1. A pyramidal cell, drawn in ink in the manner of Ramón y Cajal.</figcaption></figure>
-  <p>In Dr. Alfredo Kirkwood's lab at the Zanvyl Krieger Mind/Brain Institute, I am training in whole-cell patch-clamp recording, on a project about how parvalbumin interneurons shape the balance of excitation and inhibition in visual cortex during the critical period.</p>
-  <p>Before Hopkins, I worked on retinal imaging: a semi-automated method for measuring total and avascular retinal area in the rat model of oxygen-induced retinopathy, which became an ImageJ plugin and part of a paper in <i>Angiogenesis</i> [2, 3]. I have also used AlphaFold and energy landscape theory to study interactions between MAP kinase signalling proteins [4].</p>
+  <h3>2.1 Electrophysiology</h3>
+  <p>Whole-cell patch-clamp recording and acute brain-slice preparation, which I am training in at Dr. Alfredo Kirkwood's lab at the Zanvyl Krieger Mind/Brain Institute.</p>
+  <h3>2.2 Molecular biology and image analysis</h3>
+  <p>RNA extraction, cDNA synthesis, qPCR and Western blot, in Dr. Ellen Ingolfsland's lab at the University of Minnesota Medical School. Semi-automated measurement of total and avascular retinal area in flat-mounted retinas from the rat model of oxygen-induced retinopathy, written as an ImageJ plugin [2, 3].</p>
+  <h3>2.3 Structural modelling</h3>
+  <p>Molecular docking with UCSF DOCK, protein–protein interaction modelling with AlphaFold 2, and candidate screening in VMD, used to model JNK3–MKK7 docking with Dr. Derek Cashman at Tennessee Tech; and AlphaFold with energy landscape theory, used to predict interactions between MAP kinase signal transduction proteins [4].</p>
+  <h3>2.4 Software</h3>
+  <p>Static analysis of scientific model code in MATLAB, R, Python, Julia and NONMEM, read without running it (NeuGenesis); and an iOS app, Sangi Tunes [5].</p>
+  <h3>2.5 Literature review</h3>
+  <p>Reviewing the literature on music and functional brain connectivity in autism, with Dr. Shalini Narayana at the University of Tennessee Health Science Center [1].</p>
+  <h3>2.6 Piano</h3>
+  <p>Solo and duet performance, with Melodies 4 Memphis [6].</p>
 </section>
-<section class="tab" id="publications" role="tabpanel" aria-labelledby="tab-publications" hidden>
-  <h2><span class="n">2</span>Publications</h2>
+<section class="tab" id="results" role="tabpanel" aria-labelledby="tab-results" hidden>
+  <h2><span class="n">3</span>Results</h2>
   <figure class="fig-right"><canvas id="fig2" width="500" height="500" aria-label="Ink drawing of a flat-mounted retina"></canvas>
     <figcaption>Fig. 2. A retina, flat-mounted into four petals.</figcaption></figure>
+  <h3>3.1 Retinal imaging</h3>
+  <p>The quantification method is part of a paper in <i>Angiogenesis</i> [2], and the ImageJ plugin was presented as a poster at the Pediatric Academic Societies Conference [3]. Work from the same lab on iron deficiency, anemia and retinal vessels was presented there as two abstracts I co-authored [7, 8].</p>
+  <h3>3.2 Protein interactions</h3>
+  <p>A model of JNK3–MKK7 docking, used to look for therapeutic candidates for Alzheimer's disease; and a poster on MAP kinase interactions at the Virginia Commonwealth University Computational Medicine Symposium [4].</p>
+  <h3>3.3 Music and autism</h3>
+  <p>A paper on the effects of music therapy in autism spectrum disorder, in the <i>International Journal of High School Research</i> [1].</p>
+  <h3>3.4 NeuGenesis</h3>
+  <p>Co-founded in 2026 and part of the Johns Hopkins Pava Center Spark Accelerator. It ties each parameter in a model's code to the line that sets it and the source it cites; when it cannot place a value, it says so instead of guessing. We evaluated our own first approach blind, under rules written before the results, and withdrew the part that did not work.</p>
+  <h3>3.5 Sangi Tunes and Melodies 4 Memphis</h3>
+  <p>Sangi Tunes, a music and speech learning app for neurodiverse children, is on the Apple App Store [5]. With Melodies 4 Memphis I perform solo and duet piano for seniors at assisted-living homes in Memphis and volunteer alongside student musicians [6].</p>
+</section>
+<section class="tab" id="discussion" role="tabpanel" aria-labelledby="tab-discussion" hidden>
+  <h2><span class="n">4</span>Discussion</h2>
+  <p>My current project, in the Kirkwood lab, studies synaptic excitation/inhibition balance and parvalbumin-positive interneurons in cortical circuits related to circadian rhythms, to understand the critical period of plasticity: a window when experience rewires the circuit. I wrote about where that science stands in an essay, <a href="essay.html"><i>Windows and Brakes</i></a>.</p>
+  <p>Music runs alongside the lab work. As research director of Melodies 4 Memphis, I interview neurologists about how music supports elderly patients [6]; Sangi Tunes [5] and the music therapy paper [1] come from the same interest.</p>
+  <p><b>Limitations.</b> I am a first-year student, and most of what is above is a beginning.</p>
+  <p><b>Correspondence.</b> If any of this interests you, email me at <a href="mailto:rkrish23@jh.edu">rkrish23@jh.edu</a>.</p>
+  <p>Turn the sound on at the top of the page and each spike plays a note.</p>
+</section>
+<section class="tab" id="citations" role="tabpanel" aria-labelledby="tab-citations" hidden>
+  <h2><span class="n">5</span>Citations</h2>
   <ol class="refs">
     <li>R. Krishnan. <span class="t">The effects of music therapy in autism spectrum disorder.</span> International Journal of High School Research 7, 114–119 (2025). <a href="https://doi.org/10.36838/v7i11.114">doi:10.36838/v7i11.114</a></li>
     <li>H. Qureishy, A. Morikuni, M. D. Evans, <b>R. Krishnan</b>, E. C. Ingolfsland. <span class="t">Semi-automated quantification of total and avascular retinal area in the rat model of oxygen-induced retinopathy.</span> Angiogenesis 29(4), 52 (2026). <a href="https://doi.org/10.1007/s10456-026-10070-8">doi:10.1007/s10456-026-10070-8</a></li>
     <li>R. Krishnan. <span class="t">Development of a semi-automated ImageJ plugin to quantify oxygen-induced retinopathy.</span> Poster, Pediatric Academic Societies Conference, Boston, MA (2026).</li>
     <li>R. Krishnan, M. Zubair. <span class="t">Prediction of protein–protein interactions between MAP kinase signal transduction proteins using AlphaFold and energy landscape theory.</span> Poster, Virginia Commonwealth University Computational Medicine Symposium, Richmond, VA (2025).</li>
+    <li><span class="t">Sangi Tunes.</span> Apple App Store. <a href="https://apps.apple.com/us/app/sangi-tunes/id6756803528">apps.apple.com/us/app/sangi-tunes</a></li>
+    <li><span class="t">Melodies 4 Memphis.</span> <a href="https://melodiesformemphis.org/melodies-for-memphis-about-us/">melodiesformemphis.org</a></li>
+    <li>K. Terai, C. Roll, A. Hussein, H. Qureishy, <b>R. Krishnan</b>, B. Binstadt, R. Rao, E. Ingolfsland. <span class="t">The impact of anemia and its treatment with low or high dose enteral iron on oxygen-induced retinopathy.</span> Abstract, Pediatric Academic Societies Conference, Boston, MA (2026).</li>
+    <li>M. Klein, K. Terai, T. Monko, <b>R. Krishnan</b>, T. Bastian, E. Ingolfsland. <span class="t">Iron deficiency promotes cell migration in human retinal microvascular endothelial cells.</span> Abstract, Pediatric Academic Societies Conference, Boston, MA (2026).</li>
   </ol>
 </section>
-<section class="tab" id="projects" role="tabpanel" aria-labelledby="tab-projects" hidden>
-  <h2><span class="n">3</span>Projects</h2>
-  <dl class="proj">
-    <dt>NeuGenesis</dt>
-    <dd>Co-founder. A tool that reads scientific model code in MATLAB, R, Python, Julia and NONMEM without running it, and ties each parameter to the line that sets it and the source it cites. When it cannot place a value, it says so instead of guessing. Part of the Johns Hopkins Pava Center Spark Accelerator.</dd>
-    <dt>Sangi Tunes</dt>
-    <dd>A music and speech learning app for neurodiverse children. <a href="https://apps.apple.com/us/app/sangi-tunes/id6756803528">App Store</a></dd>
-  </dl>
+<section class="tab" id="positions" role="tabpanel" aria-labelledby="tab-positions" hidden>
+  <h2><span class="n">A</span>Positions</h2>
+  <h3>Research</h3>
+  <ul class="cv">
+    <li><span>Research Intern, Zanvyl Krieger Mind/Brain Institute, Johns Hopkins University</span><span class="d">Aug 2026 – present</span><span class="w">Mentor: Dr. Alfredo Kirkwood</span></li>
+    <li><span>Research Intern, University of Minnesota Medical School, Division of Neonatology</span><span class="d">May 2025 – present</span><span class="w">Mentor: Dr. Ellen Ingolfsland</span></li>
+    <li><span>Research Intern, Governor's School for Emerging Technologies, Tennessee Tech University</span><span class="d">Jun 2024 – Dec 2025</span><span class="w">Mentor: Dr. Derek Cashman</span></li>
+    <li><span>Research Intern, University of Tennessee Health Science Center, Department of Neurology</span><span class="d">Mar 2024 – Jul 2025</span><span class="w">Mentor: Dr. Shalini Narayana</span></li>
+  </ul>
+  <h3>Ventures and software</h3>
+  <ul class="cv">
+    <li><span>Co-Founder, NeuGenesis</span><span class="d">Jul 2026 – present</span></li>
+    <li><span>App Developer, Sangi Tunes</span><span class="d">May 2025 – present</span></li>
+    <li><span>Researcher, Samsung Solve for Tomorrow</span><span class="d">Aug 2023 – Feb 2025</span></li>
+  </ul>
+  <h3>Leadership and service</h3>
+  <ul class="cv">
+    <li><span>Operations &amp; Logistics and Outreach Committees, Johns Hopkins GreenHacks</span><span class="d">Sep 2026 – present</span></li>
+    <li><span>Research Director &amp; Pianist, Melodies 4 Memphis</span><span class="d">Aug 2024 – present</span></li>
+    <li><span>State President, Tennessee Technology Student Association</span><span class="d">Apr 2025 – May 2026</span></li>
+    <li><span>Team Captain &amp; Co-President, Collierville High School Science Bowl</span><span class="d">Feb 2023 – May 2026</span></li>
+    <li><span>Instructor, Memphis Youth Chess Organization</span><span class="d">Jul 2022 – May 2026</span></li>
+  </ul>
+  <h3>Clinical</h3>
+  <ul class="cv">
+    <li><span>Clinical volunteer, Neuro ICU and Stroke Neurology, Methodist Hospital, Memphis (128 hours)</span><span class="d">Jun 2025</span></li>
+    <li><span>Clinical shadowing, Interventional Cardiology, St. Francis Hospital, Memphis (40 hours)</span><span class="d">Oct 2024</span></li>
+  </ul>
 </section>
-<section class="tab" id="music" role="tabpanel" aria-labelledby="tab-music" hidden>
-  <h2><span class="n">4</span>Music</h2>
-  <p>As research director and pianist with <a href="https://melodiesformemphis.org/melodies-for-memphis-about-us/">Melodies 4 Memphis</a>, I play solo and duet piano for seniors at assisted-living homes in Memphis, volunteer alongside student musicians, and interview neurologists about how music supports elderly patients.</p>
-  <p>Turn the sound on at the top of the page and each spike plays a note.</p>
+<section class="tab" id="awards" role="tabpanel" aria-labelledby="tab-awards" hidden>
+  <h2><span class="n">B</span>Awards</h2>
+  <ul class="cv">
+    <li><span>U.S. Presidential Scholars Semi-Finalist</span><span class="d">2026</span></li>
+    <li><span>WREG News Channel 3 Knowledge Bowl Grand Champion ($12,500 scholarship)</span><span class="d">2026</span></li>
+    <li><span>Salutatorian, Collierville High School; summa cum laude</span><span class="d">2026</span></li>
+    <li><span>National Science Bowl, Top 32 nationally (team captain)</span><span class="d">2026</span></li>
+    <li><span>Tennessee Science Bowl, 2nd place (2026) and 3rd place (2025)</span><span class="d">2025, 2026</span></li>
+    <li><span>Samsung Solve for Tomorrow National Semi-Finalist ($10,000)</span><span class="d">2025</span></li>
+    <li><span>Samsung Solve for Tomorrow State Finalist ($2,500)</span><span class="d">2025</span></li>
+    <li><span>National TSA Data Science Semi-Finalist (top 20 nationally)</span><span class="d">2025</span></li>
+    <li><span>Chemistry Olympiad National Exam Nominee (top 5% nationally)</span><span class="d">2025</span></li>
+    <li><span>International Biology Bowl Semi-Finalist</span><span class="d">2024, 2025</span></li>
+  </ul>
 </section>
   </div></div>
 </div>
@@ -164,8 +252,8 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
 <script>
 (() => {
 const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-const SECTIONS = [["research","Research"],["publications","Publications"],["projects","Projects"],["music","Music"]];
-const NOTES = [261.63, 329.63, 392.0, 523.25]; // C4 E4 G4 C5
+const SECTIONS = [["introduction","Introduction"],["methods","Methods"],["results","Results"],["discussion","Discussion"],["citations","Citations"]];
+const NOTES = [261.63, 329.63, 392.0, 523.25, 659.25]; // C4 E4 G4 C5 E5
 let soundOn = false, ac = null;
 const btn = document.getElementById('sound');
 btn.addEventListener('click', () => { soundOn = !soundOn; btn.textContent = soundOn ? 'sound on' : 'sound off'; btn.setAttribute('aria-pressed', soundOn);
@@ -205,7 +293,7 @@ function drawTrace(){
   const W = host.clientWidth - parseFloat(getComputedStyle(host).paddingLeft) * 2;
   const narrow = W < 600;
   const H = narrow ? 300 : 400, padL = narrow ? 34 : 52, padT = narrow ? 112 : 118, padB = 38;
-  const T = 400, spikes = [70, 160, 250, 340], epsps = [18, 108, 198, 284, 378];
+  const T = 400, spikes = [62, 134, 206, 278, 350], epsps = [14, 86, 158, 230, 302, 374];
   const V = voltage(T, spikes, epsps);
   const x = t => padL + (t / T) * (W - padL - 8);
   const y = v => padT + (30 - v) / 110 * (H - padT - padB);
@@ -239,7 +327,7 @@ function drawTrace(){
     const px = x(t), py = y(30);
     el('rect', {x: px - 16, y: py - 90, width: 34, height: H - padB - py + 90, fill: 'transparent'}, g);
     const dot = el('circle', {cx: px, cy: py, r: 4.5, fill: css('--paper'), stroke: ink, 'stroke-width': 1.2}, g);
-    const lbl = el('text', {class: 'lbl', x: px + 6, y: py - 12, fill: ink, 'font-size': narrow ? 14 : 19, transform: `rotate(-38 ${px + 6} ${py - 12})`}, g);
+    const lbl = el('text', {class: 'lbl', x: px + 6, y: py - 12, fill: ink, 'font-size': narrow ? 13 : 19, transform: `rotate(${narrow ? -62 : -38} ${px + 6} ${py - 12})`}, g);
     const b = document.createElementNS(ns, 'tspan'); b.setAttribute('font-weight', 700); b.textContent = (i + 1) + '. '; lbl.appendChild(b); lbl.appendChild(document.createTextNode(name));
     const on = () => { dot.setAttribute('fill', accent); dot.setAttribute('stroke', accent); lbl.setAttribute('fill', accent); play(NOTES[i]); };
     const off = () => { dot.setAttribute('fill', css('--paper')); dot.setAttribute('stroke', ink); lbl.setAttribute('fill', ink); };
@@ -289,17 +377,17 @@ function fig2(){
 let lastFocus = null;
 const sheet = document.getElementById('sheet'), scrim = document.getElementById('scrim'), sheetBody = document.getElementById('sheetBody');
 function show(id){
-  const ids = SECTIONS.map(x => x[0]);
+  const ids = [...SECTIONS.map(x => x[0]), 'positions', 'awards'];
   if (!ids.includes(id)){ if (sheet.classList.contains('open')){ sheet.classList.remove('open'); scrim.classList.remove('open'); document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); } return; }
   for (const x of ids){ document.getElementById(x).hidden = x !== id; document.getElementById('tab-' + x).setAttribute('aria-selected', x === id); }
   if (!sheet.classList.contains('open')) lastFocus = document.activeElement;
   sheet.classList.add('open'); scrim.classList.add('open'); document.body.style.overflow = 'hidden'; sheetBody.scrollTop = 0;
-  document.getElementById('tab-' + id).focus({preventScroll: true});
+  const tb = document.getElementById('tab-' + id); tb.focus({preventScroll: true}); tb.scrollIntoView({block: 'nearest', inline: 'nearest'});
 }
 function openTab(id){ if (location.hash !== '#' + id) location.hash = id; else show(id); }
 function closeSheet(){ if (location.hash) history.pushState(null, '', location.pathname + location.search); show(''); }
 addEventListener('hashchange', () => show(location.hash.slice(1)));
-document.querySelectorAll('[data-tab]').forEach((b, i) => b.addEventListener('click', () => { play(NOTES[i]); openTab(b.dataset.tab); }));
+document.querySelectorAll('[data-tab]').forEach((b, i) => b.addEventListener('click', () => { if (NOTES[i]) play(NOTES[i]); openTab(b.dataset.tab); }));
 document.getElementById('close').addEventListener('click', closeSheet);
 scrim.addEventListener('click', closeSheet);
 addEventListener('keydown', e => {
