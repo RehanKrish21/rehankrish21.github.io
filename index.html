@@ -54,6 +54,25 @@ figcaption{font-style:italic;color:var(--grey);font-size:15px;margin-top:4px}
 .corr a{color:var(--ink)}
 footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:var(--grey)}
 ::selection{background:var(--faint)}
+.links{margin:6px 0 0;font-size:16px;color:var(--grey)}
+.links a{color:var(--ink);margin-right:2px}
+.links .sep{margin:0 8px}
+.sheet{position:fixed;left:0;right:0;bottom:0;height:86vh;height:86dvh;background:var(--paper);border-top:1px solid var(--faint);
+ box-shadow:0 -18px 48px rgba(0,0,0,.14);transform:translateY(104%);transition:transform .38s cubic-bezier(.2,.8,.2,1);z-index:10;display:flex;flex-direction:column;visibility:hidden}
+.sheet.open{transform:none;visibility:visible}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.18);opacity:0;pointer-events:none;transition:opacity .3s;z-index:9}
+.scrim.open{opacity:1;pointer-events:auto}
+.tabbar{display:flex;align-items:flex-end;gap:4px;max-width:760px;width:100%;margin:0 auto;padding:14px 24px 0;border-bottom:1px solid var(--faint);flex:none}
+.tabbar button{font:inherit;font-size:17px;background:none;border:0;border-bottom:2px solid transparent;color:var(--grey);padding:6px 10px 8px;cursor:pointer;margin-bottom:-1px}
+.tabbar button b{margin-right:6px}
+.tabbar button:hover{color:var(--ink)}
+.tabbar button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
+.tabbar .close{margin-left:auto;font-size:26px;line-height:1;padding:2px 6px 8px;color:var(--grey)}
+.grip{width:44px;height:4px;border-radius:2px;background:var(--faint);margin:10px auto 0;flex:none}
+.sheet-body{overflow-y:auto;flex:1;-webkit-overflow-scrolling:touch}
+.sheet-body .paper{padding-top:4px}
+.sheet-body h2{margin-top:22px}
+@media (prefers-reduced-motion:reduce){.sheet,.scrim{transition:none}}
 @media (max-width:640px){
  body{font-size:17px}
  header{padding:20px 16px 0;gap:12px}
@@ -67,6 +86,11 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
  .paper{padding:8px 16px 32px}
  .fig-right{float:none;width:100%;max-width:240px;margin:12px auto}
  p{text-align:left}
+ .sheet{height:92vh;height:92dvh}
+ .tabbar{padding:10px 8px 0;gap:0;overflow-x:auto}
+ .tabbar button{font-size:15px;padding:6px 7px 8px;white-space:nowrap}
+ .tabbar button b{margin-right:3px}
+ .links{font-size:14px}
 }
 </style>
 </head>
@@ -76,7 +100,8 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
   <div>
     <h1>Rehan Krishnan <small>Neuroscience &amp; Applied Mathematics, Johns Hopkins</small></h1>
     <p class="problem"><b>Problem.</b> A neuron at rest obeys <span class="math">τ dV/dt = −(V − E<sub>L</sub>) + R I(t)</span>.
-      <i class="hint">Four inputs reach threshold below: each spike is a section. Click one.</i></p>
+      <i class="hint">Four inputs reach threshold below: each spike opens a section. Click one.</i></p>
+    <p class="links"><a href="mailto:rkrish23@jh.edu">Email</a><span class="sep">·</span><a href="https://www.linkedin.com/in/rehan-krishnan-b1b041329">LinkedIn</a><span class="sep">·</span><a href="https://github.com/RehanKrish21">GitHub</a></p>
   </div>
   <button class="toggle" id="sound" type="button" aria-pressed="false">sound off</button>
 </header>
@@ -84,39 +109,57 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
 <div id="trace" aria-label="Membrane voltage trace. Each spike links to a section."></div>
 
 <main class="paper">
-  <p class="abstract"><b>Abstract.</b> I am a first-year student at Johns Hopkins University, majoring in Neuroscience with a minor in Applied Mathematics. I work at the bench, write software, and play piano. This page is laid out like a short paper; the spikes above are its table of contents.</p>
+  <p class="abstract"><b>Abstract.</b> I am a first-year student at Johns Hopkins University, majoring in Neuroscience with a minor in Applied Mathematics. I work at the bench, write software, and play piano. This page is laid out like a short paper; the spikes above are its table of contents, and each one pulls up its section.</p>
 
-  <h2 id="research"><span class="n">1</span>Research</h2>
+  <p class="corr">Correspondence: <a href="mailto:rkrish23@jh.edu">rkrish23@jh.edu</a> · <a href="https://github.com/RehanKrish21">GitHub</a> · <a href="https://www.linkedin.com/in/rehan-krishnan-b1b041329">LinkedIn</a></p>
+</main>
+<footer>Updated November 2026</footer>
+
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Section">
+  <div class="grip"></div>
+  <div class="tabbar" role="tablist">
+    <button role="tab" id="tab-research" data-tab="research"><b>1</b>Research</button>
+    <button role="tab" id="tab-publications" data-tab="publications"><b>2</b>Publications</button>
+    <button role="tab" id="tab-projects" data-tab="projects"><b>3</b>Projects</button>
+    <button role="tab" id="tab-music" data-tab="music"><b>4</b>Music</button>
+    <button class="close" id="close" aria-label="Close">×</button>
+  </div>
+  <div class="sheet-body" id="sheetBody"><div class="paper">
+<section class="tab" id="research" role="tabpanel" aria-labelledby="tab-research" hidden>
+  <h2><span class="n">1</span>Research</h2>
   <figure class="fig-right"><canvas id="fig1" width="500" height="560" aria-label="Ink drawing of a pyramidal neuron"></canvas>
     <figcaption>Fig. 1. A pyramidal cell, drawn in ink in the manner of Ramón y Cajal.</figcaption></figure>
   <p>In Dr. Alfredo Kirkwood's lab at the Zanvyl Krieger Mind/Brain Institute, I am training in whole-cell patch-clamp recording, on a project about how parvalbumin interneurons shape the balance of excitation and inhibition in visual cortex during the critical period.</p>
   <p>Before Hopkins, I worked on retinal imaging: a semi-automated method for measuring total and avascular retinal area in the rat model of oxygen-induced retinopathy, which became an ImageJ plugin and part of a paper in <i>Angiogenesis</i> [2, 3]. I have also used AlphaFold and energy landscape theory to study interactions between MAP kinase signalling proteins [4].</p>
-
-  <h2 id="publications"><span class="n">2</span>Publications</h2>
+</section>
+<section class="tab" id="publications" role="tabpanel" aria-labelledby="tab-publications" hidden>
+  <h2><span class="n">2</span>Publications</h2>
   <figure class="fig-right"><canvas id="fig2" width="500" height="500" aria-label="Ink drawing of a flat-mounted retina"></canvas>
-    <figcaption>Fig. 2. A retina, flat-mounted into four petals,</figcaption></figure>
+    <figcaption>Fig. 2. A retina, flat-mounted into four petals.</figcaption></figure>
   <ol class="refs">
     <li>R. Krishnan. <span class="t">The effects of music therapy in autism spectrum disorder.</span> International Journal of High School Research 7, 114–119 (2025). <a href="https://doi.org/10.36838/v7i11.114">doi:10.36838/v7i11.114</a></li>
     <li>H. Qureishy, A. Morikuni, M. D. Evans, <b>R. Krishnan</b>, E. C. Ingolfsland. <span class="t">Semi-automated quantification of total and avascular retinal area in the rat model of oxygen-induced retinopathy.</span> Angiogenesis 29(4), 52 (2026). <a href="https://doi.org/10.1007/s10456-026-10070-8">doi:10.1007/s10456-026-10070-8</a></li>
     <li>R. Krishnan. <span class="t">Development of a semi-automated ImageJ plugin to quantify oxygen-induced retinopathy.</span> Poster, Pediatric Academic Societies Conference, Boston, MA (2026).</li>
     <li>R. Krishnan, M. Zubair. <span class="t">Prediction of protein–protein interactions between MAP kinase signal transduction proteins using AlphaFold and energy landscape theory.</span> Poster, Virginia Commonwealth University Computational Medicine Symposium, Richmond, VA (2025).</li>
   </ol>
-
-  <h2 id="projects"><span class="n">3</span>Projects</h2>
+</section>
+<section class="tab" id="projects" role="tabpanel" aria-labelledby="tab-projects" hidden>
+  <h2><span class="n">3</span>Projects</h2>
   <dl class="proj">
     <dt>NeuGenesis</dt>
     <dd>Co-founder. A tool that reads scientific model code in MATLAB, R, Python, Julia and NONMEM without running it, and ties each parameter to the line that sets it and the source it cites. When it cannot place a value, it says so instead of guessing. Part of the Johns Hopkins Pava Center Spark Accelerator.</dd>
     <dt>Sangi Tunes</dt>
     <dd>A music and speech learning app for neurodiverse children. <a href="https://apps.apple.com/us/app/sangi-tunes/id6756803528">App Store</a></dd>
   </dl>
-
-  <h2 id="music"><span class="n">4</span>Music</h2>
+</section>
+<section class="tab" id="music" role="tabpanel" aria-labelledby="tab-music" hidden>
+  <h2><span class="n">4</span>Music</h2>
   <p>As research director and pianist with <a href="https://melodiesformemphis.org/melodies-for-memphis-about-us/">Melodies 4 Memphis</a>, I play solo and duet piano for seniors at assisted-living homes in Memphis, volunteer alongside student musicians, and interview neurologists about how music supports elderly patients.</p>
   <p>Turn the sound on at the top of the page and each spike plays a note.</p>
-
-  <p class="corr">Correspondence: <a href="mailto:rkrish23@jh.edu">rkrish23@jh.edu</a> · <a href="https://github.com/RehanKrish21">GitHub</a> · <a href="https://www.linkedin.com/in/rehan-krishnan-b1b041329">LinkedIn</a></p>
-</main>
-<footer>Updated November 2026</footer>
+</section>
+  </div></div>
+</div>
 
 <script>
 (() => {
@@ -200,7 +243,7 @@ function drawTrace(){
     const b = document.createElementNS(ns, 'tspan'); b.setAttribute('font-weight', 700); b.textContent = (i + 1) + '. '; lbl.appendChild(b); lbl.appendChild(document.createTextNode(name));
     const on = () => { dot.setAttribute('fill', accent); dot.setAttribute('stroke', accent); lbl.setAttribute('fill', accent); play(NOTES[i]); };
     const off = () => { dot.setAttribute('fill', css('--paper')); dot.setAttribute('stroke', ink); lbl.setAttribute('fill', ink); };
-    const go = () => { play(NOTES[i]); document.getElementById(id).scrollIntoView({behavior: 'smooth'}); history.replaceState(null, '', '#' + id); };
+    const go = () => { play(NOTES[i]); openTab(id); };
     g.addEventListener('mouseenter', on); g.addEventListener('mouseleave', off); g.addEventListener('focus', on); g.addEventListener('blur', off);
     g.addEventListener('click', go); g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
   });
@@ -243,8 +286,31 @@ function fig2(){
     ctx.restore(); ctx.lineWidth = 1.6; ctx.stroke(p); }
   ctx.beginPath(); ctx.arc(cx, cy, 10, 0, 7); ctx.fillStyle = css('--paper'); ctx.fill(); ctx.lineWidth = 1.6; ctx.stroke();
 }
+let lastFocus = null;
+const sheet = document.getElementById('sheet'), scrim = document.getElementById('scrim'), sheetBody = document.getElementById('sheetBody');
+function show(id){
+  const ids = SECTIONS.map(x => x[0]);
+  if (!ids.includes(id)){ if (sheet.classList.contains('open')){ sheet.classList.remove('open'); scrim.classList.remove('open'); document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); } return; }
+  for (const x of ids){ document.getElementById(x).hidden = x !== id; document.getElementById('tab-' + x).setAttribute('aria-selected', x === id); }
+  if (!sheet.classList.contains('open')) lastFocus = document.activeElement;
+  sheet.classList.add('open'); scrim.classList.add('open'); document.body.style.overflow = 'hidden'; sheetBody.scrollTop = 0;
+  document.getElementById('tab-' + id).focus({preventScroll: true});
+}
+function openTab(id){ if (location.hash !== '#' + id) location.hash = id; else show(id); }
+function closeSheet(){ if (location.hash) history.pushState(null, '', location.pathname + location.search); show(''); }
+addEventListener('hashchange', () => show(location.hash.slice(1)));
+document.querySelectorAll('[data-tab]').forEach((b, i) => b.addEventListener('click', () => { play(NOTES[i]); openTab(b.dataset.tab); }));
+document.getElementById('close').addEventListener('click', closeSheet);
+scrim.addEventListener('click', closeSheet);
+addEventListener('keydown', e => {
+  if (!sheet.classList.contains('open')) return;
+  if (e.key === 'Escape') closeSheet();
+  const tabs = [...document.querySelectorAll('[data-tab]')], k = tabs.indexOf(document.activeElement);
+  if (k >= 0 && (e.key === 'ArrowRight' || e.key === 'ArrowLeft')){ const n = tabs[(k + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length]; openTab(n.dataset.tab); }
+});
 function draw(){ drawTrace(); fig1(); fig2(); }
 draw();
+show(location.hash.slice(1));
 let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(drawTrace, 150); });
 matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
 })();
