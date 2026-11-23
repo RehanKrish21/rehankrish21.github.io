@@ -36,7 +36,7 @@ blockquote{margin:18px 0;padding:0 0 0 18px;border-left:2px solid var(--faint);c
 .pieces{list-style:none;padding:0;margin:14px 0 0}
 .pieces li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;margin:0 0 12px;padding-bottom:12px;border-bottom:1px solid var(--faint)}
 .pieces li:last-child{border-bottom:0}
-.pieces .n{color:var(--accent);font-size:19px;line-height:1}
+.pieces .n{color:var(--accent);font-size:19px;line-height:1;width:22px;text-align:center}
 .pieces .w{font-weight:700}
 .pieces .c{display:block;color:var(--grey);font-size:16px;font-style:italic;margin-top:1px}
 .note{font-size:15px;color:var(--grey);border-top:1px solid var(--faint);margin-top:40px;padding-top:12px}
@@ -78,11 +78,12 @@ blockquote{margin:18px 0;padding:0 0 0 18px;border-left:2px solid var(--faint);c
 
 <!-- ========== EDIT HERE: WHAT I'M LISTENING TO (add or remove <li> blocks) ========== -->
 <h2>On repeat</h2>
-<p>A running list, in no order, and not a tasteful one.</p>
+<p>What I am listening to right now.</p>
 <ul class="pieces">
-  <li><span class="n">&#9833;</span><span><span class="w">Add a piece here</span><span class="c">composer or artist — and a line on why, if you want</span></span></li>
-  <li><span class="n">&#9834;</span><span><span class="w">And another</span><span class="c">copy one of these rows to add more</span></span></li>
-  <li><span class="n">&#9835;</span><span><span class="w">And another</span><span class="c">delete the ones you do not use</span></span></li>
+  <li><span class="n">&#9833;</span><span><span class="w">babo</span><span class="c">wave to earth</span></span></li>
+  <li><span class="n">&#9834;</span><span><span class="w">Don’t Leave Me</span><span class="c">Giveon</span></span></li>
+  <li><span class="n">&#9835;</span><span><span class="w">Matsuri</span><span class="c">Fujii Kaze</span></span></li>
+  <li><span class="n">&#9833;</span><span><span class="w">Ghungroo</span><span class="c">Arijit Singh &amp; Shilpa Rao, from <i style="font-style:normal">War</i></span></span></li>
 </ul>
 
 <p class="note">Also on this site: <a href="essays/">the essays</a> and <a href="./">the rest</a>. If you want to tell me I am wrong about any of it, or send me something to listen to: <a href="mailto:rkrish23@jh.edu">rkrish23@jh.edu</a>.</p>
@@ -156,5 +157,6 @@ blockquote{margin:18px 0;padding:0 0 0 18px;border-left:2px solid var(--faint);c
   document.addEventListener('visibilitychange', () => { if (document.hidden) cancelAnimationFrame(raf); else if (!still) raf = requestAnimationFrame(frame); });
 })();
 </script>
+<script src="assets/cursor.js" defer></script>
 </body>
 </html>
