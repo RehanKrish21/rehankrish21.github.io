@@ -73,6 +73,8 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
 .tabbar button{font:inherit;font-size:17px;background:none;border:0;border-bottom:2px solid transparent;color:var(--grey);padding:6px 10px 8px;cursor:pointer;margin-bottom:-1px}
 .tabbar button b{margin-right:6px}
 .tabbar button:hover{color:var(--ink)}
+.tabbar button:focus:not(:focus-visible){outline:none}
+.tabbar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .tabbar button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
 .tabbar .apx-tab{font-style:italic}
 .tabbar .close{position:absolute;top:8px;right:14px;font-size:28px;line-height:1;padding:4px 8px;color:var(--grey);border:0;margin:0}
@@ -109,6 +111,7 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
 <header>
   <img class="avatar" src="assets/avatar.jpg" alt="">
   <div>
+    <!-- ========== EDIT HERE: NAME AND SUBTITLE ========== -->
     <h1>Rehan Krishnan <small>Neuroscience &amp; Applied Mathematics, Johns Hopkins</small></h1>
     <p class="problem"><b>Problem.</b> A neuron at rest obeys <span class="math">τ dV/dt = −(V − E<sub>L</sub>) + R I(t)</span>.
       <i class="hint">Five inputs reach threshold below: each spike opens a section. Click one.</i></p>
@@ -120,9 +123,11 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
 <div id="trace" aria-label="Membrane voltage trace. Each spike links to a section."></div>
 
 <main class="paper">
+  <!-- ========== EDIT HERE: ABSTRACT ========== -->
   <p class="abstract"><b>Abstract.</b> I am a first-year student at Johns Hopkins University, majoring in Neuroscience with a minor in Applied Mathematics. I work at the bench, write software, and play piano. This page is laid out like a short paper: introduction, methods, results, discussion and citations. The spikes above are its table of contents, and each one pulls up its section.</p>
 
   <p class="apx"><b>Appendices.</b> <a href="#positions">A. Positions</a> · <a href="#awards">B. Awards</a> &nbsp;&nbsp; <b>Essay.</b> <a href="essay.html"><i>Windows and Brakes</i>: where the science of neuroplasticity stands</a></p>
+  <!-- ========== EDIT HERE: CORRESPONDENCE BOX ========== -->
   <div class="reach" id="contact">
     <p><b>Correspondence.</b> If you are interested in working together, have a question about my research, or want to talk about neuroscience, music or NeuGenesis, I would be glad to hear from you: <a href="mailto:rkrish23@jh.edu">rkrish23@jh.edu</a>.</p>
     <p class="sm">For NeuGenesis specifically: <a href="mailto:ceo.neugenesis@gmail.com">ceo.neugenesis@gmail.com</a> · <a href="https://www.linkedin.com/in/rehan-krishnan-b1b041329">LinkedIn</a> · <a href="https://github.com/RehanKrish21">GitHub</a></p>
@@ -144,11 +149,13 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
     <button class="close" id="close" aria-label="Close">×</button>
   </div>
   <div class="sheet-body" id="sheetBody"><div class="paper">
+<!-- ========== EDIT HERE: 1 INTRODUCTION ========== -->
 <section class="tab" id="introduction" role="tabpanel" aria-labelledby="tab-introduction" hidden>
   <h2><span class="n">1</span>Introduction</h2>
   <p>I am a first-year student at Johns Hopkins University, majoring in Neuroscience with a minor in Applied Mathematics.</p>
   <p>Most of my work so far has one of two shapes. Some of it is measurement: recording from neurons, or turning images of tissue into numbers that can be compared. The rest is building: software that checks where a scientific model's numbers come from, an app that teaches through music, and piano for audiences who rarely get live music. The sections that follow describe the methods, what came of them, and what I am working on now.</p>
 </section>
+<!-- ========== EDIT HERE: 2 METHODS ========== -->
 <section class="tab" id="methods" role="tabpanel" aria-labelledby="tab-methods" hidden>
   <h2><span class="n">2</span>Methods</h2>
   <figure class="fig-right"><canvas id="fig1" width="500" height="560" aria-label="Ink drawing of a pyramidal neuron"></canvas>
@@ -161,11 +168,14 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
   <p>Molecular docking with UCSF DOCK, protein–protein interaction modelling with AlphaFold 2, and candidate screening in VMD, used to model JNK3–MKK7 docking with Dr. Derek Cashman at Tennessee Tech; and AlphaFold with energy landscape theory, used to predict interactions between MAP kinase signal transduction proteins [4].</p>
   <h3>2.4 Software</h3>
   <p>Static analysis of scientific model code in MATLAB, R, Python, Julia and NONMEM, read without running it (NeuGenesis); and an iOS app, Sangi Tunes [5].</p>
-  <h3>2.5 Literature review</h3>
+  <h3>2.5 In-silico neuroforecasting</h3>
+  <p>A pipeline that runs Meta's open brain-encoding model, TRIBE v2, on short videos to estimate a second-by-second cortical response, averages it into ten functional networks, and tests with grouped cross-validation whether those signals forecast audience retention beyond simple baselines [9]. It builds on neuroforecasting work in which measured brain responses to videos forecast their real-world engagement [10].</p>
+  <h3>2.6 Literature review</h3>
   <p>Reviewing the literature on music and functional brain connectivity in autism, with Dr. Shalini Narayana at the University of Tennessee Health Science Center [1].</p>
-  <h3>2.6 Piano</h3>
+  <h3>2.7 Piano</h3>
   <p>Solo and duet performance, with Melodies 4 Memphis [6].</p>
 </section>
+<!-- ========== EDIT HERE: 3 RESULTS ========== -->
 <section class="tab" id="results" role="tabpanel" aria-labelledby="tab-results" hidden>
   <h2><span class="n">3</span>Results</h2>
   <figure class="fig-right"><canvas id="fig2" width="500" height="500" aria-label="Ink drawing of a flat-mounted retina"></canvas>
@@ -178,9 +188,12 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
   <p>A paper on the effects of music therapy in autism spectrum disorder, in the <i>International Journal of High School Research</i> [1].</p>
   <h3>3.4 NeuGenesis</h3>
   <p>Co-founded in 2026 and part of the Johns Hopkins Pava Center Spark Accelerator. It ties each parameter in a model's code to the line that sets it and the source it cites; when it cannot place a value, it says so instead of guessing. We evaluated our own first approach blind, under rules written before the results, and withdrew the part that did not work.</p>
-  <h3>3.5 Sangi Tunes and Melodies 4 Memphis</h3>
+  <h3>3.5 Neuro-engagement forecasting</h3>
+  <p>The pipeline is open source, with tests and notebooks for running it on a GPU [9]. So far it has been run only on synthetic data: it recovers a planted signal, and a matching null control shows no gain. The real comparison, on the SnapUGC short-video dataset, has not been run yet, so there is no result about real videos to report.</p>
+  <h3>3.6 Sangi Tunes and Melodies 4 Memphis</h3>
   <p>Sangi Tunes, a music and speech learning app for neurodiverse children, is on the Apple App Store [5]. With Melodies 4 Memphis I perform solo and duet piano for seniors at assisted-living homes in Memphis and volunteer alongside student musicians [6].</p>
 </section>
+<!-- ========== EDIT HERE: 4 DISCUSSION ========== -->
 <section class="tab" id="discussion" role="tabpanel" aria-labelledby="tab-discussion" hidden>
   <h2><span class="n">4</span>Discussion</h2>
   <p>My current project, in the Kirkwood lab, studies synaptic excitation/inhibition balance and parvalbumin-positive interneurons in cortical circuits related to circadian rhythms, to understand the critical period of plasticity: a window when experience rewires the circuit. I wrote about where that science stands in an essay, <a href="essay.html"><i>Windows and Brakes</i></a>.</p>
@@ -189,6 +202,7 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
   <p><b>Correspondence.</b> If any of this interests you, email me at <a href="mailto:rkrish23@jh.edu">rkrish23@jh.edu</a>.</p>
   <p>Turn the sound on at the top of the page and each spike plays a note.</p>
 </section>
+<!-- ========== EDIT HERE: 5 CITATIONS (numbered in order; [1] is the first <li>) ========== -->
 <section class="tab" id="citations" role="tabpanel" aria-labelledby="tab-citations" hidden>
   <h2><span class="n">5</span>Citations</h2>
   <ol class="refs">
@@ -200,8 +214,11 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
     <li><span class="t">Melodies 4 Memphis.</span> <a href="https://melodiesformemphis.org/melodies-for-memphis-about-us/">melodiesformemphis.org</a></li>
     <li>K. Terai, C. Roll, A. Hussein, H. Qureishy, <b>R. Krishnan</b>, B. Binstadt, R. Rao, E. Ingolfsland. <span class="t">The impact of anemia and its treatment with low or high dose enteral iron on oxygen-induced retinopathy.</span> Abstract, Pediatric Academic Societies Conference, Boston, MA (2026).</li>
     <li>M. Klein, K. Terai, T. Monko, <b>R. Krishnan</b>, T. Bastian, E. Ingolfsland. <span class="t">Iron deficiency promotes cell migration in human retinal microvascular endothelial cells.</span> Abstract, Pediatric Academic Societies Conference, Boston, MA (2026).</li>
+    <li>R. Krishnan. <span class="t">Neuro-engagement forecasts.</span> Software, GitHub (2026). <a href="https://github.com/RehanKrish21/Neuro-engagement-forecasts">github.com/RehanKrish21/Neuro-engagement-forecasts</a></li>
+    <li>L. C. Tong, M. Y. Acikalin, A. Genevsky, B. Shiv, B. Knutson. <span class="t">Brain activity forecasts video engagement in an internet attention market.</span> Proc. Natl. Acad. Sci. USA 117, 6936–6941 (2020). <a href="https://doi.org/10.1073/pnas.1905178117">doi:10.1073/pnas.1905178117</a></li>
   </ol>
 </section>
+<!-- ========== EDIT HERE: APPENDIX A: POSITIONS ========== -->
 <section class="tab" id="positions" role="tabpanel" aria-labelledby="tab-positions" hidden>
   <h2><span class="n">A</span>Positions</h2>
   <h3>Research</h3>
@@ -215,6 +232,7 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
   <ul class="cv">
     <li><span>Co-Founder, NeuGenesis</span><span class="d">Jul 2026 – present</span></li>
     <li><span>App Developer, Sangi Tunes</span><span class="d">May 2025 – present</span></li>
+    <li><span>Developer, <a href="https://github.com/RehanKrish21/Neuro-engagement-forecasts">Neuro-engagement forecasts</a> (open source)</span><span class="d">2026</span></li>
     <li><span>Researcher, Samsung Solve for Tomorrow</span><span class="d">Aug 2023 – Feb 2025</span></li>
   </ul>
   <h3>Leadership and service</h3>
@@ -231,6 +249,7 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
     <li><span>Clinical shadowing, Interventional Cardiology, St. Francis Hospital, Memphis (40 hours)</span><span class="d">Oct 2024</span></li>
   </ul>
 </section>
+<!-- ========== EDIT HERE: APPENDIX B: AWARDS ========== -->
 <section class="tab" id="awards" role="tabpanel" aria-labelledby="tab-awards" hidden>
   <h2><span class="n">B</span>Awards</h2>
   <ul class="cv">
