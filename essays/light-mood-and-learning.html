@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Light, Mood and Learning</title>
+<meta name="description" content="Two routes from the eye that have nothing to do with seeing An essay by Rehan Krishnan.">
+<link rel="preload" href="../assets/fonts/cmu-serif-500-roman.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"CMU Serif";font-style:normal;font-weight:500;src:url("../assets/fonts/cmu-serif-500-roman.woff2") format("woff2")}
+@font-face{font-family:"CMU Serif";font-style:italic;font-weight:500;src:url("../assets/fonts/cmu-serif-500-italic.woff2") format("woff2")}
+@font-face{font-family:"CMU Serif";font-style:normal;font-weight:700;src:url("../assets/fonts/cmu-serif-700-roman.woff2") format("woff2")}
+@font-face{font-family:"CMU Serif";font-style:italic;font-weight:700;src:url("../assets/fonts/cmu-serif-700-italic.woff2") format("woff2")}
+:root{--paper:#FCFCF9;--ink:#141517;--grey:#6B6E73;--faint:#D9DAD6;--accent:#9E2A2B}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#15161A;--ink:#E9E7E1;--grey:#9A9CA1;--faint:#33353B;--accent:#E07A6B}}
+:root[data-theme="dark"]{--paper:#15161A;--ink:#E9E7E1;--grey:#9A9CA1;--faint:#33353B;--accent:#E07A6B}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:500 19px/1.6 "CMU Serif","Latin Modern Roman","Computer Modern",Georgia,serif;font-kerning:normal}
+a{color:inherit;text-decoration:none;border-bottom:1px solid var(--faint)}
+a:hover{border-bottom-color:var(--ink)}
+main{max-width:700px;margin:0 auto;padding:28px 24px 48px}
+.back{font-size:15px;font-style:italic;color:var(--grey);border:0}
+.back:hover{color:var(--ink)}
+h1{font-size:34px;line-height:1.15;margin:34px 0 6px;font-weight:700;text-align:center}
+.sub{text-align:center;font-style:italic;font-size:19px;margin:0 0 6px}
+.by{text-align:center;color:var(--grey);font-size:16px;margin:0 0 30px}
+.abstract{font-size:17px;margin:0 auto 30px;max-width:600px}
+.abstract b{font-variant:small-caps;letter-spacing:.5px}
+.body{counter-reset:sec}
+.body h2{font-size:21px;margin:36px 0 10px;font-weight:700}
+.body h2::before{counter-increment:sec;content:counter(sec);margin-right:12px}
+.body h3{font-size:18px;margin:26px 0 8px;font-weight:700}
+p{margin:0 0 14px;text-align:justify;hyphens:auto}
+blockquote{margin:16px 0;padding:0 0 0 18px;border-left:2px solid var(--faint);color:var(--grey)}
+img{max-width:100%;height:auto;display:block;margin:18px auto}
+code{font-size:.9em}
+hr{border:0;border-top:1px solid var(--faint);margin:28px 0}
+sup a, .footnote-ref{border:0;color:var(--accent);font-size:13px;padding:0 1px}
+.footnote{margin-top:40px}
+.footnote::before{content:"References";display:block;font-weight:700;font-size:21px;margin:0 0 12px}
+.footnote hr{display:none}
+.footnote ol{padding-left:26px;margin:0}
+.footnote li{font-size:15.5px;line-height:1.45;margin:0 0 10px;padding-left:6px}
+.footnote li p{text-align:left;margin:0}
+.footnote-backref{border:0;color:var(--grey);margin-left:4px}
+.footnote li:target{background:var(--faint)}
+.note{font-size:15px;color:var(--grey);border-top:1px solid var(--faint);margin-top:36px;padding-top:12px}
+.list{list-style:none;padding:0;margin:24px 0 0}
+.list li{margin:0 0 22px}
+.list .t{font-size:21px;font-weight:700}
+.list .m{color:var(--grey);font-size:15px}
+.list .s{font-style:italic;margin-top:2px}
+@media (max-width:640px){body{font-size:17px}main{padding:18px 16px 36px}h1{font-size:27px}.sub{font-size:17px}p{text-align:left}}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="./">← Essays</a> &nbsp; <a class="back" href="../">Rehan Krishnan</a>
+<h1>Light, Mood and Learning</h1>
+<p class="sub">Two routes from the eye that have nothing to do with seeing</p>
+<p class="by">Rehan Krishnan · November 2026</p>
+<p class="abstract"><b>Abstract.</b> Light does more than let us see. A small class of retinal cells measures brightness and sends it to parts of the brain that never form an image. A 2018 study in mice traced two of these routes: one through the suprachiasmatic nucleus that affects learning, and one through a thalamic nucleus called the perihabenular nucleus that affects mood. This essay follows how those cells were found, what the two routes are, what the experiments do and do not show, and why a model of the visual cortex cannot see either of them.</p>
+<div class="body"><h2>A third photoreceptor</h2>
+<p>For most of the history of vision science the retina had two kinds of light sensor, rods and cones. Everything the brain knew about light was assumed to start there. In 2002 that changed. David Berson and colleagues recorded from the retinal ganglion cells that project to the suprachiasmatic nucleus (SCN), the brain&rsquo;s circadian clock, and found that they responded to light on their own, even when cut off from rods and cones<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. In the same issue of <em>Science</em>, Samer Hattar and colleagues showed that these cells contain the photopigment melanopsin and mapped where their axons go<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
+<p>The cells are now called <em>intrinsically photosensitive retinal ganglion cells</em>, or ipRGCs. They are a small minority of ganglion cells and they are bad at what we usually mean by vision. They respond slowly and they do not resolve detail. What they do well is report how bright the world is over long stretches of time. That is the signal a clock needs. Light acts as the <em>zeitgeber</em>, the time-giver, and ipRGCs are how it reaches the SCN to set the clock to the day.</p>
+<p>So from the start these cells were filed under circadian rhythm and sleep. The more interesting question came later: is that all they do?</p>
+<h2>Light at the wrong time</h2>
+<p>It is hard to separate light from sleep. If you keep an animal in bad lighting and it becomes depressed or learns poorly, the obvious explanation is that its clock was disrupted, it slept badly, and everything else followed.</p>
+<p>A 2012 study from Hattar&rsquo;s group was designed to pull those apart. Mice were kept on a cycle of 3.5 hours of light and 3.5 hours of dark, instead of the usual 12 and 12. The cycle was chosen because it puts light at the wrong times of day without breaking the clock. The mice kept a working circadian rhythm, and the amount and structure of their sleep did not change. They still showed depression-like behaviour and they still learned worse. Mice without ipRGCs were protected from both<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>.</p>
+<p>That result is the reason the word <em>directly</em> is in the paper&rsquo;s title. Light was reaching mood and learning through ipRGCs, and not only by way of lost sleep or a broken clock. What the study could not say was where in the brain the signal went.</p>
+<h2>Two routes</h2>
+<p>The answer came in 2018, in a paper by Diego Fernandez and colleagues, including my mentor Daniel Severin<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>. It found that the effects on learning and the effects on mood travel by different routes.</p>
+<p><img alt="Two non-image-forming routes from the retina: one to the SCN, affecting learning, and one to the perihabenular nucleus, affecting mood." src="media/light-pathways.svg" /></p>
+<p>The learning route runs through the SCN. The ipRGCs that project there carry light&rsquo;s effect on learning, and they do it independently of the SCN&rsquo;s pacemaker function. In mice whose ipRGCs reached the SCN but not their other targets, the abnormal light cycle still impaired learning, and the mood effects were gone. This is the part I find strangest. The SCN is known as a clock, but here it is behaving more like a relay, passing a light signal on without that signal having to go through its timekeeping.</p>
+<p>The mood route skips the SCN altogether. A different set of ipRGCs projects to a region of the dorsal thalamus that the paper named the <em>perihabenular nucleus</em>, or PHb. In mice the PHb was both necessary and sufficient for light&rsquo;s effects on mood-related behaviour: without its activity the abnormal light no longer changed mood, and driving it was enough to produce the change. The PHb is wired into regions already tied to mood. It connects with the prelimbic and infralimbic parts of the prefrontal cortex and projects to the dorsomedial striatum and the nucleus accumbens.</p>
+<p>Put together, the retina has at least three jobs for light. One is seeing. One is telling the SCN something that matters for learning. One is telling the PHb something that matters for mood. Only the first is what we would call vision.</p>
+<h2>What the experiments do not show</h2>
+<p>Three cautions belong here.</p>
+<p>The first is that these are mice. Mice are nocturnal, and light means something different to an animal that sleeps through the day. Humans have ipRGCs and an SCN, but nobody has shown that the human PHb does the same job.</p>
+<p>The second is that a mouse cannot report its mood. The measures are behavioural proxies, such as how much a mouse prefers sugar water to plain water and how long it stays immobile in a forced swim. They are standard and useful, but they are not the same thing as depression in a person.</p>
+<p>The third is the one I got wrong in my first notes on this paper. It is tempting to read it as saying you can boost learning with light. It does not say that. It shows that <em>aberrant</em> light <em>impairs</em> learning. Whether well-timed light could improve learning was not tested. It is a fair question to ask, and I would like to know the answer, but it is a question and not a finding.</p>
+<p>The same goes for sleep. The easy takeaway is that light matters because sleep matters. The 2012 result points the other way: the mice slept normally and were still affected<sup id="fnref2:3"><a class="footnote-ref" href="#fn:3">3</a></sup>. Sleep is important for plenty of other reasons. The point of this work is that light has its own line into mood and learning.</p>
+<h2>What a cortical model cannot see</h2>
+<p>This connects to a project of mine. I have been working with TRIBE v2, a model from Meta that predicts how the human cortex responds to what a person sees and hears. My code is at <a href="https://github.com/RehanKrish21/Neuro-engagement-forecasts">github.com/RehanKrish21/Neuro-engagement-forecasts</a>.</p>
+<p>TRIBE v2 models the image-forming route: retina, thalamus, visual cortex and onward. Its released weights cover cortex only. The two routes in this paper are non-image-forming and they run below the cortex, from ipRGCs to the SCN and from ipRGCs to the PHb. A cortex-only model has no way to represent them.</p>
+<p>That matters for what such a model can claim. Given a video, it can predict the cortical response to the content. It knows nothing about what the brightness and timing of that same screen are doing through the other two routes. The same clip watched in the middle of the day and in the middle of the night would get the same prediction, even though the light is arriving at very different points in the viewer&rsquo;s day. I think that is a real limit of the model and worth naming, and it is a question I want to carry into the project.</p>
+<h2>What is not known</h2>
+<p>Three questions seem open to me. The first is whether the PHb route exists in people and does the same job. The second is the one above: whether light can be used to help learning, and not only to harm it. The third is how the SCN passes on a light signal for learning without using its clock, and where that signal goes next.</p>
+<p>I came to this paper because of who wrote it. I am staying with it because it changes what I think the eye is for.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>D. M. Berson, F. A. Dunn, M. Takao. <em>Phototransduction by retinal ganglion cells that set the circadian clock.</em> Science 295, 1070–1073 (2002). <a href="https://doi.org/10.1126/science.1067262">doi:10.1126/science.1067262</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:2">
+<p>S. Hattar, H.-W. Liao, M. Takao, D. M. Berson, K.-W. Yau. <em>Melanopsin-containing retinal ganglion cells: architecture, projections, and intrinsic photosensitivity.</em> Science 295, 1065–1070 (2002). <a href="https://doi.org/10.1126/science.1069609">doi:10.1126/science.1069609</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:3">
+<p>T. A. LeGates et al. <em>Aberrant light directly impairs mood and learning through melanopsin-expressing neurons.</em> Nature 491, 594–598 (2012). <a href="https://doi.org/10.1038/nature11673">doi:10.1038/nature11673</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref2:3" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+<li id="fn:4">
+<p>D. C. Fernandez, P. M. Fogerson, L. Lazzerini Ospri, M. B. Thomsen, R. M. Layne, D. Severin, J. Zhan, J. H. Singer, A. Kirkwood, H. Zhao, D. M. Berson, S. Hattar. <em>Light affects mood and learning through distinct retina-brain pathways.</em> Cell 175, 71–84 (2018). <a href="https://doi.org/10.1016/j.cell.2018.08.004">doi:10.1016/j.cell.2018.08.004</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">↩</a></p>
+</li>
+</ol>
+</div></div>
+<p class="note">Questions, corrections or disagreements are welcome: <a href="mailto:rkrish23@jh.edu">rkrish23@jh.edu</a>.</p>
+</main>
+</body>
+</html>

@@ -68,6 +68,17 @@ def obsidian_to_markdown(body: str, slugs: dict[str, str], used_media: set[str])
 
     body = re.sub(r"!\[\[([^\]]+)\]\]", embed, body)
 
+    # ![alt](file.svg): a standard Markdown image pointing at a file in Attachments
+    def md_image(m: re.Match) -> str:
+        alt, target = m.group(1), m.group(2).strip()
+        if re.match(r"^[a-z]+://", target) or target.startswith("/"):
+            return m.group(0)                      # web images are left as they are
+        name = Path(target.split("#")[0]).name
+        used_media.add(name)
+        return f"![{alt}](media/{name})"
+
+    body = re.sub(r"!\[([^\]]*)\]\(([^)\s]+)\)", md_image, body)
+
     # [[Other essay]] or [[Other essay|label]] -> link if it is published, else plain text
     def wikilink(m: re.Match) -> str:
         target, _, label = m.group(1).partition("|")
