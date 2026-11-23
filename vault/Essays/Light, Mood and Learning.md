@@ -15,7 +15,7 @@ The cells are now called *intrinsically photosensitive retinal ganglion cells*, 
 
 %% YOUR VOICE: when did you first learn that the eye has a third kind of photoreceptor? What did you think? %%
 
-So from the start these cells were filed under circadian rhythm and sleep. The more interesting question came later: is that all they do?
+So from the start these cells were filed under circadian rhythm and sleep. Later work asked whether that is all they do.
 
 ## Light at the wrong time
 
@@ -33,21 +33,19 @@ The answer came in 2018, in a paper by Diego Fernandez and colleagues, including
 
 ![Two non-image-forming routes from the retina: one to the SCN, affecting learning, and one to the perihabenular nucleus, affecting mood.](light-pathways.svg)
 
-The learning route runs through the SCN. The ipRGCs that project there carry light's effect on learning, and they do it independently of the SCN's pacemaker function. In mice whose ipRGCs reached the SCN but not their other targets, the abnormal light cycle still impaired learning, and the mood effects were gone. This is the part I find strangest. The SCN is known as a clock, but here it is behaving more like a relay, passing a light signal on without that signal having to go through its timekeeping.
+The learning route runs through the SCN. The ipRGCs that project there carry light's effect on learning, and they do it independently of the SCN's pacemaker function. In mice whose ipRGCs reached the SCN but not their other targets, the abnormal light cycle still impaired learning, and the mood effects were gone. The SCN is known as a clock, but here it is behaving more like a relay, passing a light signal on without that signal having to go through its timekeeping.
 
 The mood route skips the SCN altogether. A different set of ipRGCs projects to a region of the dorsal thalamus that the paper named the *perihabenular nucleus*, or PHb. In mice the PHb was both necessary and sufficient for light's effects on mood-related behaviour: without its activity the abnormal light no longer changed mood, and driving it was enough to produce the change. The PHb is wired into regions already tied to mood. It connects with the prelimbic and infralimbic parts of the prefrontal cortex and projects to the dorsomedial striatum and the nucleus accumbens.
 
-Put together, the retina has at least three jobs for light. One is seeing. One is telling the SCN something that matters for learning. One is telling the PHb something that matters for mood. Only the first is what we would call vision.
+So the retina uses light for seeing, for a signal to the SCN that bears on learning, and for a signal to the PHb that bears on mood. Only the first is vision.
 
 ## What the experiments do not show
 
-Three cautions belong here.
+These are mice. Mice are nocturnal, and light means something different to an animal that sleeps through the day. Humans have ipRGCs and an SCN, but nobody has shown that the human PHb does the same job.
 
-The first is that these are mice. Mice are nocturnal, and light means something different to an animal that sleeps through the day. Humans have ipRGCs and an SCN, but nobody has shown that the human PHb does the same job.
+A mouse also cannot report its mood. The measures are behavioural proxies, such as how much a mouse prefers sugar water to plain water and how long it stays immobile in a forced swim. They are standard and useful, but they are not the same thing as depression in a person.
 
-The second is that a mouse cannot report its mood. The measures are behavioural proxies, such as how much a mouse prefers sugar water to plain water and how long it stays immobile in a forced swim. They are standard and useful, but they are not the same thing as depression in a person.
-
-The third is the one I got wrong in my first notes on this paper. It is tempting to read it as saying you can boost learning with light. It does not say that. It shows that *aberrant* light *impairs* learning. Whether well-timed light could improve learning was not tested. It is a fair question to ask, and I would like to know the answer, but it is a question and not a finding.
+I got one point wrong in my first notes on this paper. It is tempting to read it as saying you can boost learning with light. It does not say that. It shows that *aberrant* light *impairs* learning. Whether well-timed light could improve learning was not tested. It is a fair question to ask, and I would like to know the answer, but it is a question and not a finding.
 
 The same goes for sleep. The easy takeaway is that light matters because sleep matters. The 2012 result points the other way: the mice slept normally and were still affected[^3]. Sleep is important for plenty of other reasons. The point of this work is that light has its own line into mood and learning.
 
@@ -73,9 +71,7 @@ Specific beats general: a moment, a result, a conversation. %%
 
 ## What is not known
 
-Three questions seem open to me. The first is whether the PHb route exists in people and does the same job. The second is the one above: whether light can be used to help learning, and not only to harm it. The third is how the SCN passes on a light signal for learning without using its clock, and where that signal goes next.
-
-I came to this paper because of who wrote it. I am staying with it because it changes what I think the eye is for.
+Whether the PHb route exists in people, and does the same job there, is open. So is whether light can be used to help learning rather than only to harm it, and how the SCN passes on a light signal for learning without using its clock, and where that signal goes next.
 
 [^1]: D. M. Berson, F. A. Dunn, M. Takao. *Phototransduction by retinal ganglion cells that set the circadian clock.* Science 295, 1070–1073 (2002). [doi:10.1126/science.1067262](https://doi.org/10.1126/science.1067262)
 [^2]: S. Hattar, H.-W. Liao, M. Takao, D. M. Berson, K.-W. Yau. *Melanopsin-containing retinal ganglion cells: architecture, projections, and intrinsic photosensitivity.* Science 295, 1065–1070 (2002). [doi:10.1126/science.1069609](https://doi.org/10.1126/science.1069609)
