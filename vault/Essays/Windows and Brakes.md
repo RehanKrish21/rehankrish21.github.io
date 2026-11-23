@@ -11,6 +11,8 @@ abstract: >
 
 In the 1960s, David Hubel and Torsten Wiesel closed one eye of young kittens and recorded from visual cortex. Cells that should have answered to both eyes came to answer mostly to the open one. The same closure in an adult cat did very little. Mapping when the effect could be produced, they found it was confined to a few months early in life, a *period of susceptibility*[^1]. The term that stuck is *critical period*: a stretch of development when experience shapes a circuit far more than it can later.
 
+%% YOUR VOICE: where did you first run into critical periods (a class, the Kirkwood lab, a paper)? One or two sentences, here or at the very start. %%
+
 For a long time this read as a story of decline. Young brains were plastic; old brains had set. The more interesting finding of the last twenty-five years is that the window is opened and closed by specific mechanisms, and that mechanisms can be changed.
 
 ## What opens it
@@ -25,6 +27,8 @@ If the opening is active, the closing turns out to be active too. As the critica
 
 The adult brain, on this view, has not lost the capacity to rewire. It has decided, for good reasons, to stop. Stability is a feature: a circuit that rewired at every input would not hold a memory or a skill.
 
+%% YOUR VOICE: what does your work in the Kirkwood lab look like right now? Slices, patching, what you have learned to do, what was hard. %%
+
 Neuromodulators decide the direction of a change as well as whether it happens. In visual cortex, the same pattern of spike timing can strengthen or weaken a synapse, depending on which neuromodulatory receptors are active[^9]. That result came from Alfredo Kirkwood's lab at Johns Hopkins, where I now work, and it is a reminder that plasticity is not one dial but several.
 
 ## The pharmacology of reopening
@@ -32,6 +36,8 @@ Neuromodulators decide the direction of a change as well as whether it happens. 
 The most clinically important turn came from antidepressants. Chronic fluoxetine restored ocular dominance plasticity in the visual cortex of adult rats, with lowered cortical inhibition and more BDNF[^10]. Ketamine, a fast-acting antidepressant, rapidly increased synaptic proteins and dendritic spines in the rat prefrontal cortex through the mTOR pathway[^11], and in mice the new spines were needed to keep its behavioural effects going, though not to start them[^12]. In 2021, a study reported that several antidepressants bind directly to TrkB, the receptor for BDNF[^13]; a later study found that LSD and psilocin bind the same receptor with high affinity[^14].
 
 Psychedelics had already been shown to grow neurites, spines and synapses in cultured neurons and in animals[^15], and a chemically modified, non-hallucinogenic analogue kept much of that structural effect in rodents[^16]. Then a Johns Hopkins group showed that psychedelics reopen a critical period for social reward learning in adult mice, and that how long it stayed open tracked how long each drug's effects last in people: days for ketamine, weeks for psilocybin and LSD[^17].
+
+%% YOUR VOICE: your own take on the psychedelic and ketamine results. Convincing, overhyped, exciting? Why? %%
 
 Two cautions belong next to these results. Almost all of them are in rodents. And reopening a window is not the same as using it well. In the fluoxetine experiment, the drug made change possible, but it was closing one eye, an experience, that decided what changed. If psychedelic-assisted therapy works in people, the drug may matter less than what happens in the room while the window is open.
 
@@ -44,6 +50,16 @@ Plasticity also includes whether the adult human brain makes new neurons. In 201
 The clearest human test of a plasticity window so far is in stroke. After a stroke, animal studies suggested a period of heightened plasticity. The Critical Period After Stroke Study gave patients the same extra motor therapy at different times. Therapy started in the subacute window, about two to three months after the stroke, produced the clearest gains; the same therapy given months later did little[^22]. It was a phase II trial and needs confirming, but it is the kind of evidence the field needs more of: in people, with timing as the variable.
 
 Music is a quieter example. Musical training changes the brain's structure and function in ways that have made it a model for studying plasticity in people[^23]. It is also the example closest to my own interests.
+
+## My thoughts
+
+%% YOUR SECTION. Nothing here shows on the site until you write text under this heading.
+Write a few short paragraphs in your own voice, not a summary of the papers:
+- Which finding surprised you most, and why?
+- Is there anything you disagree with, or think is overstated?
+- If you had your own lab for a year, what would you test first?
+- How does this connect to something you have actually done or seen?
+Specific beats general: a moment, a result, a conversation. %%
 
 ## What is not known
 

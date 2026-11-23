@@ -13,6 +13,8 @@ For most of the history of vision science the retina had two kinds of light sens
 
 The cells are now called *intrinsically photosensitive retinal ganglion cells*, or ipRGCs. They are a small minority of ganglion cells and they are bad at what we usually mean by vision. They respond slowly and they do not resolve detail. What they do well is report how bright the world is over long stretches of time. That is the signal a clock needs. Light acts as the *zeitgeber*, the time-giver, and ipRGCs are how it reaches the SCN to set the clock to the day.
 
+%% YOUR VOICE: when did you first learn that the eye has a third kind of photoreceptor? What did you think? %%
+
 So from the start these cells were filed under circadian rhythm and sleep. The more interesting question came later: is that all they do?
 
 ## Light at the wrong time
@@ -26,6 +28,8 @@ That result is the reason the word *directly* is in the paper's title. Light was
 ## Two routes
 
 The answer came in 2018, in a paper by Diego Fernandez and colleagues, including my mentor Daniel Severin[^4]. It found that the effects on learning and the effects on mood travel by different routes.
+
+%% YOUR VOICE: how did you come to this paper? Did Daniel point you to it? What part of the work came from the Kirkwood lab? (Ask him before you say.) %%
 
 ![Two non-image-forming routes from the retina: one to the SCN, affecting learning, and one to the perihabenular nucleus, affecting mood.](light-pathways.svg)
 
@@ -53,7 +57,19 @@ This connects to a project of mine. I have been working with TRIBE v2, a model f
 
 TRIBE v2 models the image-forming route: retina, thalamus, visual cortex and onward. Its released weights cover cortex only. The two routes in this paper are non-image-forming and they run below the cortex, from ipRGCs to the SCN and from ipRGCs to the PHb. A cortex-only model has no way to represent them.
 
+%% YOUR VOICE: something you have actually seen running TRIBE. Keep it honest: so far the pipeline has only run on synthetic data. %%
+
 That matters for what such a model can claim. Given a video, it can predict the cortical response to the content. It knows nothing about what the brightness and timing of that same screen are doing through the other two routes. The same clip watched in the middle of the day and in the middle of the night would get the same prediction, even though the light is arriving at very different points in the viewer's day. I think that is a real limit of the model and worth naming, and it is a question I want to carry into the project.
+
+## My thoughts
+
+%% YOUR SECTION. Nothing here shows on the site until you write text under this heading.
+Write a few short paragraphs in your own voice, not a summary of the papers:
+- Which finding surprised you most, and why?
+- Is there anything you disagree with, or think is overstated?
+- If you had your own lab for a year, what would you test first?
+- How does this connect to something you have actually done or seen?
+Specific beats general: a moment, a result, a conversation. %%
 
 ## What is not known
 

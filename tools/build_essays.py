@@ -90,7 +90,32 @@ def obsidian_to_markdown(body: str, slugs: dict[str, str], used_media: set[str])
     body = re.sub(r"(?<!!)\[\[([^\]]+)\]\]", wikilink, body)
     # %% Obsidian comments %% are private notes: drop them
     body = re.sub(r"%%.*?%%", "", body, flags=re.S)
-    return body
+    return drop_empty_sections(body)
+
+
+def drop_empty_sections(body: str) -> str:
+    """Leave out a ## or ### heading that has nothing written under it yet.
+
+    A section that only holds %% prompts %% (already removed) is a slot still
+    to be written, so it stays off the site until there is text in it.
+    Footnote definitions do not count as text, and are always kept.
+    """
+    lines = body.split("\n")
+    keep = [True] * len(lines)
+    for i, line in enumerate(lines):
+        m = re.match(r"^(#{2,3})\s", line)
+        if not m:
+            continue
+        level, has_text = len(m.group(1)), False
+        for nxt in lines[i + 1:]:
+            h = re.match(r"^(#{1,6})\s", nxt)
+            if h and len(h.group(1)) <= level:
+                break
+            if nxt.strip() and not re.match(r"^\[\^[^\]]+\]:", nxt):
+                has_text = True
+                break
+        keep[i] = has_text
+    return "\n".join(l for l, k in zip(lines, keep) if k)
 
 
 STYLE = """
