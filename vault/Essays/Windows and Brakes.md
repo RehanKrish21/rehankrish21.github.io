@@ -1,0 +1,76 @@
+---
+title: Windows and Brakes
+subtitle: Where the science of neuroplasticity stands
+date: 2026-11-23
+publish: true
+abstract: >
+  The young brain rewires itself with ease and the adult brain mostly does not. For half a century that looked like a fact about age. Work since then suggests it is closer to a fact about brakes: molecular and cellular mechanisms that close windows of plasticity and can, in animals, be lifted. This essay follows that idea from the first experiments on critical periods to current work on antidepressants, psychedelics and stroke recovery, and ends with what is still not known.
+---
+
+## The window
+
+In the 1960s, David Hubel and Torsten Wiesel closed one eye of young kittens and recorded from visual cortex. Cells that should have answered to both eyes came to answer mostly to the open one. The same closure in an adult cat did very little. Mapping when the effect could be produced, they found it was confined to a few months early in life, a *period of susceptibility*[^1]. The term that stuck is *critical period*: a stretch of development when experience shapes a circuit far more than it can later.
+
+For a long time this read as a story of decline. Young brains were plastic; old brains had set. The more interesting finding of the last twenty-five years is that the window is opened and closed by specific mechanisms, and that mechanisms can be changed.
+
+## What opens it
+
+The surprise was that the trigger is inhibition. In mice, speeding up the maturation of inhibitory circuits with extra BDNF brought the critical period forward[^2]. In mice whose inhibition was too weak, the critical period never began, and a benzodiazepine, which strengthens inhibition, started it on demand[^3]. The cells at the centre of this are parvalbumin-positive (PV) interneurons, fast-spiking cells that hold excitatory neurons in check[^4]. One of the stranger results is that the signal for PV cells to mature, the protein Otx2, is not even made in visual cortex: it travels there, and is taken up by PV cells after the eyes open[^5].
+
+So the window does not open when the brain is youngest. It opens when a particular inhibitory circuit reaches a particular state, and that state is something experience and chemistry can move.
+
+## What closes it
+
+If the opening is active, the closing turns out to be active too. As the critical period ends, PV cells are wrapped in *perineuronal nets*, a lattice of extracellular matrix. Dissolving the nets with an enzyme, chondroitinase, restored ocular dominance plasticity in adult rats[^6]. A second brake, the protein Lynx1, dampens cholinergic signalling in adult cortex; mice without it keep juvenile-like plasticity into adulthood[^7]. Even experience can release the brakes. Ten days of darkness reactivated rapid ocular dominance plasticity in adult rats[^8].
+
+The adult brain, on this view, has not lost the capacity to rewire. It has decided, for good reasons, to stop. Stability is a feature: a circuit that rewired at every input would not hold a memory or a skill.
+
+Neuromodulators decide the direction of a change as well as whether it happens. In visual cortex, the same pattern of spike timing can strengthen or weaken a synapse, depending on which neuromodulatory receptors are active[^9]. That result came from Alfredo Kirkwood's lab at Johns Hopkins, where I now work, and it is a reminder that plasticity is not one dial but several.
+
+## The pharmacology of reopening
+
+The most clinically important turn came from antidepressants. Chronic fluoxetine restored ocular dominance plasticity in the visual cortex of adult rats, with lowered cortical inhibition and more BDNF[^10]. Ketamine, a fast-acting antidepressant, rapidly increased synaptic proteins and dendritic spines in the rat prefrontal cortex through the mTOR pathway[^11], and in mice the new spines were needed to keep its behavioural effects going, though not to start them[^12]. In 2021, a study reported that several antidepressants bind directly to TrkB, the receptor for BDNF[^13]; a later study found that LSD and psilocin bind the same receptor with high affinity[^14].
+
+Psychedelics had already been shown to grow neurites, spines and synapses in cultured neurons and in animals[^15], and a chemically modified, non-hallucinogenic analogue kept much of that structural effect in rodents[^16]. Then a Johns Hopkins group showed that psychedelics reopen a critical period for social reward learning in adult mice, and that how long it stayed open tracked how long each drug's effects last in people: days for ketamine, weeks for psilocybin and LSD[^17].
+
+Two cautions belong next to these results. Almost all of them are in rodents. And reopening a window is not the same as using it well. In the fluoxetine experiment, the drug made change possible, but it was closing one eye, an experience, that decided what changed. If psychedelic-assisted therapy works in people, the drug may matter less than what happens in the room while the window is open.
+
+## New neurons, an unsettled question
+
+Plasticity also includes whether the adult human brain makes new neurons. In 2018, two studies of the human hippocampus reached opposite answers: one found that neurogenesis falls to undetectable levels by adulthood[^18], the other that it persists into old age[^19]. A 2019 study, using tissue preserved under tightly controlled conditions, found many immature neurons in healthy adults and far fewer in people with Alzheimer's disease[^20]. In 2025, single-nucleus sequencing identified dividing neural progenitor cells in adult human hippocampus[^21], which adds weight to the view that some adult neurogenesis continues. How much, and whether it matters for memory or mood in people, is still open.
+
+## From mice to people
+
+The clearest human test of a plasticity window so far is in stroke. After a stroke, animal studies suggested a period of heightened plasticity. The Critical Period After Stroke Study gave patients the same extra motor therapy at different times. Therapy started in the subacute window, about two to three months after the stroke, produced the clearest gains; the same therapy given months later did little[^22]. It was a phase II trial and needs confirming, but it is the kind of evidence the field needs more of: in people, with timing as the variable.
+
+Music is a quieter example. Musical training changes the brain's structure and function in ways that have made it a model for studying plasticity in people[^23]. It is also the example closest to my own interests.
+
+## What is not known
+
+Three questions seem to me to define where the field is now. The first is specificity: lifting a brake opens a window everywhere it acts, and no one knows how to reopen plasticity in one circuit and not another. The second is safety. The brakes exist for a reason, and a brain held open indefinitely is unlikely to be a healthy one; the useful drugs may be the ones whose windows close on their own. The third is translation. Most of what is described here was shown in rodents, and the human evidence, from stroke rehabilitation, antidepressant trials and imaging of musicians, is real but indirect.
+
+The lab question I am starting on sits inside the first of these: how PV interneurons set the balance of excitation and inhibition in cortex as the critical period opens and closes. It is a small piece of a large problem, which is the right size for a first project.
+
+[^1]: D. H. Hubel, T. N. Wiesel. *The period of susceptibility to the physiological effects of unilateral eye closure in kittens.* J. Physiol. 206, 419–436 (1970). [doi:10.1113/jphysiol.1970.sp009022](https://doi.org/10.1113/jphysiol.1970.sp009022)
+[^2]: Z. J. Huang et al. *BDNF regulates the maturation of inhibition and the critical period of plasticity in mouse visual cortex.* Cell 98, 739–755 (1999). [doi:10.1016/S0092-8674(00)81509-3](https://doi.org/10.1016/S0092-8674(00)81509-3)
+[^3]: M. Fagiolini, T. K. Hensch. *Inhibitory threshold for critical-period activation in primary visual cortex.* Nature 404, 183–186 (2000). [doi:10.1038/35004582](https://doi.org/10.1038/35004582)
+[^4]: T. K. Hensch. *Critical period plasticity in local cortical circuits.* Nat. Rev. Neurosci. 6, 877–888 (2005). [doi:10.1038/nrn1787](https://doi.org/10.1038/nrn1787)
+[^5]: S. Sugiyama et al. *Experience-dependent transfer of Otx2 homeoprotein into the visual cortex activates postnatal plasticity.* Cell 134, 508–520 (2008). [doi:10.1016/j.cell.2008.05.054](https://doi.org/10.1016/j.cell.2008.05.054)
+[^6]: T. Pizzorusso et al. *Reactivation of ocular dominance plasticity in the adult visual cortex.* Science 298, 1248–1251 (2002). [doi:10.1126/science.1072699](https://doi.org/10.1126/science.1072699)
+[^7]: H. Morishita et al. *Lynx1, a cholinergic brake, limits plasticity in adult visual cortex.* Science 330, 1238–1240 (2010). [doi:10.1126/science.1195320](https://doi.org/10.1126/science.1195320)
+[^8]: H.-Y. He, W. Hodos, E. M. Quinlan. *Visual deprivation reactivates rapid ocular dominance plasticity in adult visual cortex.* J. Neurosci. 26, 2951–2955 (2006). [doi:10.1523/JNEUROSCI.5554-05.2006](https://doi.org/10.1523/JNEUROSCI.5554-05.2006)
+[^9]: G. H. Seol et al. *Neuromodulators control the polarity of spike-timing-dependent synaptic plasticity.* Neuron 55, 919–929 (2007). [doi:10.1016/j.neuron.2007.08.013](https://doi.org/10.1016/j.neuron.2007.08.013)
+[^10]: J. F. Maya Vetencourt et al. *The antidepressant fluoxetine restores plasticity in the adult visual cortex.* Science 320, 385–388 (2008). [doi:10.1126/science.1150516](https://doi.org/10.1126/science.1150516)
+[^11]: N. Li et al. *mTOR-dependent synapse formation underlies the rapid antidepressant effects of NMDA antagonists.* Science 329, 959–964 (2010). [doi:10.1126/science.1190287](https://doi.org/10.1126/science.1190287)
+[^12]: R. N. Moda-Sava et al. *Sustained rescue of prefrontal circuit dysfunction by antidepressant-induced spine formation.* Science 364, eaat8078 (2019). [doi:10.1126/science.aat8078](https://doi.org/10.1126/science.aat8078)
+[^13]: P. C. Casarotto et al. *Antidepressant drugs act by directly binding to TRKB neurotrophin receptors.* Cell 184, 1299–1313 (2021). [doi:10.1016/j.cell.2021.01.034](https://doi.org/10.1016/j.cell.2021.01.034)
+[^14]: R. Moliner et al. *Psychedelics promote plasticity by directly binding to BDNF receptor TrkB.* Nat. Neurosci. 26, 1032–1041 (2023). [doi:10.1038/s41593-023-01316-5](https://doi.org/10.1038/s41593-023-01316-5)
+[^15]: C. Ly et al. *Psychedelics promote structural and functional neural plasticity.* Cell Rep. 23, 3170–3182 (2018). [doi:10.1016/j.celrep.2018.05.022](https://doi.org/10.1016/j.celrep.2018.05.022)
+[^16]: L. P. Cameron et al. *A non-hallucinogenic psychedelic analogue with therapeutic potential.* Nature 589, 474–479 (2021). [doi:10.1038/s41586-020-3008-z](https://doi.org/10.1038/s41586-020-3008-z)
+[^17]: R. Nardou et al. *Psychedelics reopen the social reward learning critical period.* Nature 618, 790–798 (2023). [doi:10.1038/s41586-023-06204-3](https://doi.org/10.1038/s41586-023-06204-3)
+[^18]: S. F. Sorrells et al. *Human hippocampal neurogenesis drops sharply in children to undetectable levels in adults.* Nature 555, 377–381 (2018). [doi:10.1038/nature25975](https://doi.org/10.1038/nature25975)
+[^19]: M. Boldrini et al. *Human hippocampal neurogenesis persists throughout aging.* Cell Stem Cell 22, 589–599 (2018). [doi:10.1016/j.stem.2018.03.015](https://doi.org/10.1016/j.stem.2018.03.015)
+[^20]: E. P. Moreno-Jiménez et al. *Adult hippocampal neurogenesis is abundant in neurologically healthy subjects and drops sharply in patients with Alzheimer's disease.* Nat. Med. 25, 554–560 (2019). [doi:10.1038/s41591-019-0375-9](https://doi.org/10.1038/s41591-019-0375-9)
+[^21]: I. Dumitru et al. *Identification of proliferating neural progenitors in the adult human hippocampus.* Science 389, 58–63 (2025). [doi:10.1126/science.adu9575](https://doi.org/10.1126/science.adu9575)
+[^22]: A. W. Dromerick et al. *Critical Period After Stroke Study (CPASS): a phase II clinical trial testing an optimal time for motor recovery after stroke in humans.* Proc. Natl. Acad. Sci. USA 118, e2026676118 (2021). [doi:10.1073/pnas.2026676118](https://doi.org/10.1073/pnas.2026676118)
+[^23]: S. C. Herholz, R. J. Zatorre. *Musical training as a framework for brain plasticity: behavior, function, and structure.* Neuron 76, 486–502 (2012). [doi:10.1016/j.neuron.2012.10.011](https://doi.org/10.1016/j.neuron.2012.10.011)

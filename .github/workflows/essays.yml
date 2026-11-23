@@ -1,0 +1,41 @@
+name: Build essays
+
+on:
+  push:
+    branches: [paper-site]
+    paths:
+      - "vault/**"
+      - "tools/build_essays.py"
+      - ".github/workflows/essays.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: essays
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install "markdown==3.7" "pyyaml==6.0.2"
+      - name: Build essay pages from the vault
+        run: python tools/build_essays.py
+      - name: Commit the pages if they changed
+        run: |
+          git add -A essays
+          if git diff --cached --quiet; then
+            echo "Essay pages already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Rebuild essay pages from the vault"
+          git push
