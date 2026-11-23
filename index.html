@@ -20,6 +20,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font:500 19px/1.55 "CMU S
 a{color:inherit;text-decoration:none;border-bottom:1px solid var(--faint)}
 a:hover{border-bottom-color:var(--ink)}
 header{display:flex;gap:18px;align-items:flex-start;padding:28px 24px 0;max-width:1240px;margin:0 auto;position:relative}
+header>div{min-width:0;flex:1}
 .avatar{width:58px;height:58px;border-radius:50%;object-fit:cover;filter:grayscale(1) contrast(1.15);flex:none;margin-top:2px}
 h1{font-size:34px;line-height:1.1;margin:0;font-weight:700;letter-spacing:.2px}
 h1 small{font-size:17px;font-weight:500;color:var(--grey);margin-left:12px;letter-spacing:0}
@@ -46,6 +47,8 @@ figure{margin:18px 0 22px;text-align:center}
 figure canvas{max-width:100%;height:auto}
 figcaption{font-style:italic;color:var(--grey);font-size:15px;margin-top:4px}
 .fig-right{float:right;width:250px;margin:4px 0 12px 22px}
+.fig-wide{margin:22px 0 26px;clear:both}
+.fig-wide img{display:block;width:100%;height:auto}
 .refs{list-style:none;padding:0;margin:0}
 .refs li{position:relative;padding-left:38px;margin:0 0 12px;font-size:17px;text-align:left}
 .refs li::before{content:"[" counter(r) "]";counter-increment:r;position:absolute;left:0;color:var(--grey)}
@@ -66,7 +69,7 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
 ::selection{background:var(--faint)}
 .links{margin:6px 0 0;font-size:16px;color:var(--grey)}
 .links a{color:var(--ink);margin-right:2px}
-.links .sep{margin:0 8px}
+.links .sep{margin:0 3px}
 .sheet{position:fixed;left:0;right:0;bottom:0;height:86vh;height:86dvh;background:var(--paper);border-top:1px solid var(--faint);
  box-shadow:0 -18px 48px rgba(0,0,0,.14);transform:translateY(104%);transition:transform .38s cubic-bezier(.2,.8,.2,1);z-index:10;display:flex;flex-direction:column;visibility:hidden}
 .sheet.open{transform:none;visibility:visible}
@@ -118,7 +121,7 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
     <h1>Rehan Krishnan <small>Neuroscience &amp; Applied Mathematics, Johns Hopkins</small></h1>
     <p class="problem"><b>Problem.</b> A neuron at rest obeys <span class="math">τ dV/dt = −(V − E<sub>L</sub>) + R I(t)</span>.
       <i class="hint">Five inputs reach threshold below: each spike opens a section. Click one.</i></p>
-    <p class="links"><a href="essays/">Essays</a><span class="sep">·</span><a href="https://substack.com/@rehankrishnan">Substack</a><span class="sep">·</span><a href="mailto:rkrish23@jh.edu">Email</a><span class="sep">·</span><a href="https://www.linkedin.com/in/rehan-krishnan-b1b041329">LinkedIn</a><span class="sep">·</span><a href="https://github.com/RehanKrish21">GitHub</a></p>
+    <p class="links"><a href="essays/">Essays</a> <span class="sep">·</span> <a href="https://substack.com/@rehankrishnan">Substack</a> <span class="sep">·</span> <a href="mailto:rkrish23@jh.edu">Email</a> <span class="sep">·</span> <a href="https://www.linkedin.com/in/rehan-krishnan-b1b041329">LinkedIn</a> <span class="sep">·</span> <a href="https://github.com/RehanKrish21">GitHub</a></p>
   </div>
   <button class="toggle" id="sound" type="button" aria-pressed="false">sound off</button>
 </header>
@@ -201,7 +204,9 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
 <!-- ========== EDIT HERE: 4 DISCUSSION ========== -->
 <section class="tab" id="discussion" role="tabpanel" aria-labelledby="tab-discussion" hidden>
   <h2><span class="n">4</span>Discussion</h2>
-  <p>My current project, in the Kirkwood lab, studies synaptic excitation/inhibition balance and parvalbumin-positive interneurons in cortical circuits related to circadian rhythms, to understand the critical period of plasticity: a window when experience rewires the circuit. I wrote about where that science stands in an essay, <a href="essays/windows-and-brakes.html"><i>Windows and Brakes</i></a>.</p>
+  <p>My current project, in the Kirkwood lab, studies synaptic excitation/inhibition balance and parvalbumin-positive interneurons in cortical circuits related to circadian rhythms, to understand the critical period of plasticity: a window when experience rewires the circuit. Light is one way the outside world reaches those circuits without passing through vision at all (Fig. 3) [11]. I wrote about where that science stands in an essay, <a href="essays/windows-and-brakes.html"><i>Windows and Brakes</i></a>.</p>
+  <figure class="fig-wide"><img src="assets/light-pathways.svg" width="720" height="420" alt="Diagram: light reaches learning through the suprachiasmatic nucleus and mood through the perihabenular nucleus, separately from image-forming vision.">
+    <figcaption>Fig. 3. Two non-image-forming routes from the retina, as described by Fernandez et al. [11]: one through the SCN to learning, one through the perihabenular nucleus to mood. The dashed line is ordinary vision. Drawn for this site.</figcaption></figure>
   <p>Music runs alongside the lab work. As research director of Melodies 4 Memphis, I interviewed neurologists about how music supports elderly patients [6]; Sangi Tunes [5] and the music therapy paper [1] come from the same interest.</p>
   <p><b>Limitations.</b> I am a first-year student, and most of what is above is a beginning.</p>
   <p><b>Correspondence.</b> If any of this interests you, email me at <a href="mailto:rkrish23@jh.edu">rkrish23@jh.edu</a>.</p>
@@ -221,6 +226,7 @@ footer{max-width:760px;margin:0 auto;padding:0 24px 32px;font-size:14px;color:va
     <li>M. Klein, K. Terai, T. Monko, <b>R. Krishnan</b>, T. Bastian, E. Ingolfsland. <span class="t">Iron deficiency promotes cell migration in human retinal microvascular endothelial cells.</span> Abstract, Pediatric Academic Societies Conference, Boston, MA (2026).</li>
     <li>R. Krishnan. <span class="t">Neuro-engagement forecasts.</span> Software, GitHub (2026). <a href="https://github.com/RehanKrish21/Neuro-engagement-forecasts">github.com/RehanKrish21/Neuro-engagement-forecasts</a></li>
     <li>L. C. Tong, M. Y. Acikalin, A. Genevsky, B. Shiv, B. Knutson. <span class="t">Brain activity forecasts video engagement in an internet attention market.</span> Proc. Natl. Acad. Sci. USA 117, 6936–6941 (2020). <a href="https://doi.org/10.1073/pnas.1905178117">doi:10.1073/pnas.1905178117</a></li>
+    <li>D. C. Fernandez, P. M. Fogerson, L. Lazzerini Ospri, M. B. Thomsen, R. M. Layne, D. Severin, J. Zhan, J. H. Singer, A. Kirkwood, H. Zhao, D. M. Berson, S. Hattar. <span class="t">Light affects mood and learning through distinct retina-brain pathways.</span> Cell 175, 71–84 (2018). <a href="https://doi.org/10.1016/j.cell.2018.08.004">doi:10.1016/j.cell.2018.08.004</a></li>
   </ol>
 </section>
 <!-- ========== EDIT HERE: APPENDIX A: POSITIONS ========== -->
