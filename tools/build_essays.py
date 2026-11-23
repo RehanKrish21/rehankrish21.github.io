@@ -182,7 +182,6 @@ def page(title: str, description: str, inner: str) -> str:
 <main>
 {inner}
 </main>
-<script src="../assets/cursor.js" defer></script>
 </body>
 </html>
 """
